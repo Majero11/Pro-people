@@ -1,0 +1,12 @@
+#ignore the virtual environment folder 
+venv/
+
+#ignore the enviroonment variables file 
+.env 
+
+#ignore temporary files from. python 
+__pycache__/
+*.pyc
+*.pyd
+*.python 
+
