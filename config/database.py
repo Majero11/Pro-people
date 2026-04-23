@@ -1,59 +1,61 @@
 # import the psycopg package 
 import psycopg
 
-# import thr class config that contains the database connevtion parameters 
-from config.settings import config 
+# import the class config that contains the database connection parameters 
+from config.settings import Config 
 
 class Database:
-    """we are goto use the singleton pattern to manage the PostgreSQL connection.
+    """ 
+    use the singleton  pattern manage the PostgreSQL connection 
     
     Attributes:
-        _instance: singleton instance of the class  
+        _instance: songleton of the class 
     """
     
-    _instance = None 
+    _instance = None
     
     def __init__(self):
         try:
-            self._instance = psycopg.connect(
-                host=config.DB_HOST,
-                user=config.DB_USER,
-                password=config.DB_PASSWORD,
-                dbname=config.DB_NAME,
-                port=config.DB_PORT 
+            self.conn = psycopg.connect(
+                host=Config.DB_HOST,
+                port=Config.DB_PORT,
+                user=Config.DB_USER,
+                password=Config.DB_PASSWORD
             )
             
-            # display a message to indicate that the connection was successful
-            print("Database connection established successfully.")
         except psycopg.OperationalError as e:
-            print(f"Error connecting to the database: {e}")
+            print(f"Error connection to the database: {e}")
             
     @classmethod
     def get_instance(cls):
-        """Private method to get the singleton instanve of the class.
-        
-        Returns:
-            database connection instance
         """
-        if cls._instance in None:
+        Private method to get the singleton instance of the class 
+        Returns: 
+            the database connection instance
+        """
+        if cls._instance is None:
             cls._instance = cls()
         return cls._instance
     
-    def _close_connection(self):
-        """Private method to close the database connection."""
-        if self._instance is not None:
-            self._instance.close()
-            print("Database connection closed.")
-
+    @classmethod
+    def close_db_connection(cls):
+        """
+        Method to close the database connection 
+        """
+        if cls._instance is not None:
+            cls._instance.conn.close()
+            
 def get_db_connection():
-    """Public method to get the database connection instance.
-    
-    Returns:
-        database connection instance
     """
-    return Database.get_instance()
+    Public method to get the database connection instance 
+    Returns:
+        the database connection instance
+    """
+    return Database.get_instance().conn
 
 def close_db_connection():
-    """Public method to close the database connection."""
-    Database._close_connection()
+    """
+    Public method to close the database connection 
+    """
+    Database.get_instance().close_db_connection()
     Database._instance = None

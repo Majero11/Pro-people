@@ -1,12 +1,11 @@
-#ignore the virtual environment folder 
+# ignore the virtual envitonment folder 
 venv/
 
-#ignore the enviroonment variables file 
-.env 
+#ignore the environment varianles file 
+.env
 
-#ignore temporary files from. python 
+# ignore the temporary files from python 
 __pycache__/
 *.pyc
 *.pyd
-*.python 
-
+*python 
