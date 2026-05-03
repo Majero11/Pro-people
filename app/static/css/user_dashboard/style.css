@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.dash_heading{
+    margin: 50px 0;
+    color: #037A5D;
+    font-weight: 500;
+
+}
+
+
+.dashboard-container{
+    display: flex;
+    width: 95%;
+    /* background-color: aqua; */
+}
+
+
+/* ============Profile Section==================== */
+.profile-section{
+    background: radial-gradient(circle at top left , #42b37c 20%
+    , #037A68 100%);
+    width: 40vw;
+    height: 600px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome-note{
+    text-align: center;
+    color: #037A5D;
+    margin-top: 20px;
+}
+
+.user-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+}
+
+.user-info{
+    color: #fff;
+}
+
+.label{
+    font-size: .75rem;
+    display: inline-block;
+    width: 80px;
+    font-weight: 500;
+}
+
+.details-title{
+    color: #fff;
+    font-weight: 100;
+}
+
+.profile-line{
+    background-color: #A8A8A8;
+}
+
+.info-tab{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    color: #fff;
+}
+
+.buttons{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 100px;
+}
+
+.btn{
+    background-color:#DCD095;
+    padding: 5px;
+    border-radius: 15px;
+    font-size: .75rem;
+    color: #037A5D;
+    text-decoration: none;
+    }
+
+.activity-section{
+   display: flex;
+    flex-direction: column;
+    width: 60vw;
+    margin-left: 20px;
+}
+
+hr{
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    background-color: #6D6D6D;
+    height: 1px;
+}
+
+.content-heading{
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-details{
+    color: #037A5D;
+}
+
+h4{
+    display: inline-block;
+    font-weight: 200;
+}
+
+.content-body{
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #CCCCCC;
+    padding: 10px;
+}
+
+p{
+    display: inline-block;
+    font-weight: 100;
+    font-size: .75rem;
+    color: #4B4B4B;
+}

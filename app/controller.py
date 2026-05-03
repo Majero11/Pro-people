@@ -11,3 +11,10 @@ def index():
     """render the index.html
     """
     return render_template('index.html')
+
+
+@app.route('/user_dashboard', methods=['GET'])
+def user_dashboard():
+    """render the user_dashboard.html
+    """
+    return render_template('user_dashboard.html')
