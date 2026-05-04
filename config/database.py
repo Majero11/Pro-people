@@ -53,7 +53,7 @@ def get_db_connection():
     """
     return Database.get_instance().conn
 
-def close_db():
+def close_db_connection():
     """
     Public method to close the database connection 
     """

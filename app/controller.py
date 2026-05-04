@@ -1,7 +1,8 @@
 # imports methods and objects from flask 
 from email.mime import message
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, session
 
+from app.models import DatabaseOperations
 from config.database import get_db_connection
 
 from app import app
@@ -19,22 +20,25 @@ def index():
         # get the form data
         email = request.form.get('email')
         password = request.form.get('password')
-
-        # connect to the database
-        conn = get_db_connection()
-        cursor = conn.cursor()
-
-        # insert the form data into the database
-        cursor.execute('INSERT INTO contact_form (email, password) VALUES (%s, %s)',
-                       (email, password))
-        conn.commit()
-
-        # close the database connection
-        cursor.close()
-        conn.close()
+        
+        user = DatabaseOperations.get_user(email, password)
+        
+        if user is not None:
+            # create a session for the user
+            session['employee_id'] = user[0]
+            session['first_name'] = user[1]
+            session['last_name'] = user[2]
+            session['is_admin'] = user[3]
+            
+            if session['is_admin']:
+                return redirect(url_for('admin_dashboard'))
+            else:
+                return redirect(url_for('user_dashboard'))
+            
 
         flash('Wrong credentials. Please try again.', 'error')
-    return redirect(url_for('index'))
+        return redirect(url_for('index'))
+    return render_template('index.html')
 
 
 @app.route('/user_dashboard', methods=['GET'])

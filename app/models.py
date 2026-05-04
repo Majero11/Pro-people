@@ -1,4 +1,4 @@
-from config.database import get_db_connection, close_db
+from config.database import get_db_connection, close_db_connection
 
 class DatabaseOperations:
     
@@ -22,10 +22,10 @@ class DatabaseOperations:
             
             user = cursor.fetchone()
             cursor.close()
-            close_db()
+            close_db_connection()
             return user
         except Exception as e:
             print(f"Error fetching user: {e}")
             return None
         finally:
-            close_db()
+            close_db_connection()
