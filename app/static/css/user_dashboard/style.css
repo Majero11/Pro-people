@@ -33,7 +33,7 @@ main{
 .profile-section{
     background: radial-gradient(circle at top left , #42b37c 20%
     , #037A68 100%);
-    width: 40vw;
+    width: 450px;
     height: 600px;
     border-radius: 10px;
     display: flex;
