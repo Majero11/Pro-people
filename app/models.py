@@ -1,4 +1,5 @@
-from config.database import get_db_connection, close_db
+from config.database import get_db_connection, close_db_connection
+
 
 class DatabaseOperations:
     
@@ -15,17 +16,17 @@ class DatabaseOperations:
                 return None
             
             #write the query to fetch the user with the given email and password
-            query = 'SELECT Employee_id, First_name, Last_name, is_admin from Employees WHERE email = %s AND password = %s'
+            query = 'SELECT user_id, first_name, last_name, is_admin from users WHERE email = %s AND password = %s'
             
             # execute the query with the provided email and password
             cursor.execute(query, (email, password))
             
             user = cursor.fetchone()
             cursor.close()
-            close_db()
+            close_db_connection()
             return user
         except Exception as e:
             print(f"Error fetching user: {e}")
             return None
         finally:
-            close_db()
+            close_db_connection()

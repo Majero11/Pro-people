@@ -15,12 +15,14 @@ class Database:
     _instance = None
     
     def __init__(self):
+        self.conn = None
         try:
             self.conn = psycopg.connect(
                 host=Config.DB_HOST,
                 port=Config.DB_PORT,
                 user=Config.DB_USER,
-                password=Config.DB_PASSWORD
+                password=Config.DB_PASSWORD,
+                dbname=Config.DB_NAME
             )
             
         except psycopg.OperationalError as e:
@@ -42,7 +44,7 @@ class Database:
         """
         Method to close the database connection 
         """
-        if cls._instance is not None:
+        if cls._instance is not None and cls._instance.conn is not None:
             cls._instance.conn.close()
             
 def get_db_connection():
@@ -53,7 +55,7 @@ def get_db_connection():
     """
     return Database.get_instance().conn
 
-def close_db():
+def close_db_connection():
     """
     Public method to close the database connection 
     """
