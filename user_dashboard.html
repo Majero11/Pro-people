@@ -28,31 +28,24 @@
             </div>
 
             <div class="activity-section">
-                {%if leave%}
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Days Remaining</th>
-                                <th>Days Applied</th>
-                                <th>Period</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>12/12/2024</td>
-                                <td>20</td>
-                                <td>10</td>
-                                <td>01 Aug - 20 Aug 26</td>
-                                <td>Pending</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                {%else%}
-                    <p>No leave applications found.</p>
-                {%endif%}   
-            </div>  
+                <div class="content-heading">
+                    <h4 class="header-details">Date</h4>
+                    <h4 class="header-details">Days Remaining</h4>
+                    <h4 class="header-details">Days Applied</h4>
+                    <h4 class="header-details">Period</h4>
+                    <h4 class="header-details">status</h4>
+                </div>
+                <hr>
+
+                <div class="content-body">
+                    <p>12/12/2024</p>
+                    <p>20</p>
+                    <p>10</p>
+                    <p>01 Aug - 20 Aug 26</p>
+                    <p>Pending</p>
+                </div>
+            </div>
+
         </div>
     </main>  
 {% endblock %}
