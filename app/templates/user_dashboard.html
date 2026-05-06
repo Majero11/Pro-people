@@ -28,7 +28,7 @@
             </div>
 
             <div class="activity-section">
-                {%if leave%}
+                {%if leave_requests%}
                     <table>
                         <thead>
                             <tr>
@@ -39,14 +39,21 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
+
                         <tbody>
+                            {%for leave in leave_requests%}
                             <tr>
-                                <td>12/12/2024</td>
-                                <td>20</td>
-                                <td>10</td>
-                                <td>01 Aug - 20 Aug 26</td>
-                                <td>Pending</td>
+                                <td>{{ leave.date }}</td>
+                                <td>{{ leave.days_remaining }}</td>
+                                <td>{{ leave.days_applied }}</td>
+                                <td>{{ leave.period }}</td>
+                                <td>{{ leave.status }}</td>
+
+                                    <form method="post" action="/delete/{{ leave.id }}">
+                                        <button type="submit">Delete</button>
+                                    </form>
                             </tr>
+                            {%endfor%}
                         </tbody>
                     </table>
                 {%else%}
