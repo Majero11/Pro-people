@@ -13,11 +13,11 @@
                     <h3 class="details-title">My Details</h3>
                     <hr class="profile-line">
                     <div class="info-tab">
-                        <p class="user-info"><span class="label">Name</span>:  John Doe</p>
-                        <p class="user-info"><span class="label">Position</span>: Software Engineer</p>
-                        <p class="user-info"><span class="label">Department</span>: IT</p> 
-                        <p class="user-info"><span class="label">Email</span>: john.doe@example.com</p> 
-                        <p class="user-info"><span class="label">Phone</span>: +1 234 567 890</p> 
+                        <p class="user-info"><span class="label">Name</span>:  {{ user.first_name }} {{ user.last_name }}</p>
+                        <p class="user-info"><span class="label">Position</span>: {{ user.position }}</p>
+                        <p class="user-info"><span class="label">Department</span>: {{ user.department_name }}</p> 
+                        <p class="user-info"><span class="label">Email</span>: {{ user.email }}</p> 
+                        <p class="user-info"><span class="label">Phone</span>:  {{ user.contact }}</p> 
                     </div>
                 </div>
                 <div class="buttons">
@@ -32,20 +32,20 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Days Remaining</th>
-                                <th>Days Applied</th>
-                                <th>Period</th>
-                                <th>Status</th>
+                                <th class="table-header">Start_Date</th>
+                                <th class="table-header">End_Date</th>
+                                <th class="table-header">Days Applied</th>
+                                <th class="table-header">Status</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {%for leave in leave_requests%}
                             <tr>
-                                <td>{{ leave.start_date }}</td>
-                                <td>{{ leave.days_applied }}</td>
-                                <td>{{ leave.status }}</td>
+                                <td class="table-contents">{{ leave.start_date }}</td>
+                                <td class="table-contents">{{ leave.end_date }}</td>
+                                <td class="table-contents">{{ leave.days_applied }}</td>
+                                <td class="table-contents">{{ leave.status }}</td>
                                 <td>
                                     <form method="post" action="/delete/{{ leave.request_id }}">
                                         <button type="submit">Delete</button>
