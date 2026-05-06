@@ -17,13 +17,13 @@
             <h1 class="logo_name">Pro<span>People</span></h1>
             <div class="form_container">
                 <label class="form-label" for="email">Email</label>
-                <input type="text" class="email" placeholder="" required>
+                <input type="text" id="email" name="email" class="email" required>
             </div>
             <div class="form_container">
                 <label class="form-label" for="password">Password</label>
-                <input type="password" class="password" placeholder="" required>
+                <input type="password" id="password" name="password" class="password" required>
             </div>
-            <button class="login-btn">Login</button>
+            <button type="submit" class="login-btn">Login</button>
         </form>
     </main>  
 {% endblock %}

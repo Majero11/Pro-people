@@ -32,6 +32,7 @@ def index():
             if session['is_admin']:
                 return redirect(url_for('admin_dashboard'))
             else:
+
                 return redirect(url_for('user_dashboard'))
 
         flash('Wrong credentials. Please try again.', 'error')
@@ -44,3 +45,9 @@ def user_dashboard():
     """render the user_dashboard.html
     """
     return render_template('user_dashboard.html')
+
+@app.route('/admin_dashboard', methods=['GET'])
+def admin():
+    """render the user_dashboard.html
+    """
+    return render_template('admin_dashboard.html')
