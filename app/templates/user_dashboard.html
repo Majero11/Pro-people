@@ -43,15 +43,14 @@
                         <tbody>
                             {%for leave in leave_requests%}
                             <tr>
-                                <td>{{ leave.date }}</td>
-                                <td>{{ leave.days_remaining }}</td>
+                                <td>{{ leave.start_date }}</td>
                                 <td>{{ leave.days_applied }}</td>
-                                <td>{{ leave.period }}</td>
                                 <td>{{ leave.status }}</td>
-
-                                    <form method="post" action="/delete/{{ leave.id }}">
+                                <td>
+                                    <form method="post" action="/delete/{{ leave.request_id }}">
                                         <button type="submit">Delete</button>
                                     </form>
+                                </td>
                             </tr>
                             {%endfor%}
                         </tbody>

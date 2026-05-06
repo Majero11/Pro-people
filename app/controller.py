@@ -2,7 +2,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
 
 from config.database import get_db_connection
-from app.models import DatabaseOperations
+from app.models import DatabaseOperations, LeaveOperations
 
 from app import app
 
@@ -42,9 +42,13 @@ def index():
 
 @app.route('/user_dashboard', methods=['GET'])
 def user_dashboard():
+    
     """render the user_dashboard.html
     """
-    return render_template('user_dashboard.html')
+    user_id = session['user_id']
+    leave_requests =    LeaveOperations.get_leave_requests_by_user_id(user_id)
+    
+    return render_template('user_dashboard.html', leave_requests=leave_requests)
 
 @app.route('/admin_dashboard', methods=['GET'])
 def admin():
