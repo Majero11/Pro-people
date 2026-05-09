@@ -59,6 +59,20 @@
                     <p>No leave applications found.</p>
                 {%endif%}   
             </div>  
+            <div class="leave-request-section">
+                <h2 class="leave-heading">Leave Requests</h2>
+                <form action="leave-request-form"></form>
+                    <div class="date-inputs">
+                    <label class="form-label" for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <div class="date-inputs">
+                    <label class="form-label" for="end_date">End Date</label>
+                    <input type="date" id="end_date" name="end_date" placeholder="YYYY-MM-DD">
+                    </div>
+                    <a href="#" class="btn apply-btn">Apply for Leave</a>
+
+            </div>
         </div>
     </main>  
 {% endblock %}

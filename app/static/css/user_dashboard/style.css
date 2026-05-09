@@ -159,3 +159,42 @@ p{
     text-align: center;
     font-weight: 300;
 }
+
+.leave-request-section
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #CCCCCC;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    background: radial-gradient(circle at top left , #42b37c 20%
+    , #037A68 100%);
+}   
+
+.date-inputs{
+    display: flex;
+    gap: 10px;
+}
+
+.leave-heading{
+    color: #037A5D;
+}
+
+.apply-btn{
+    width: 110px;
+    align-items: center;
+}
+
+.form-label{
+    font-size: .85rem;
+    font-weight: 300;
+    color: #fff;
+    margin-top: .3rem;
+    margin-right: 15px;
+}
