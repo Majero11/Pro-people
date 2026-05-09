@@ -76,6 +76,24 @@ def submit_leave():
     return redirect(url_for('user_dashboard'))
 
 
+@app.route('/delete_leave/<int:request_id>', methods=['POST'])
+def delete_leave(request_id):
+    """handles the deletion of a leave request
+    it gets the request id from the url parameter and calls the delete_leave_request method from the RequestOperations class to delete the leave request from the database
+    if the request is deleted successfully it flashes a success message and redirects the user back to the user dashboard
+    if the request deletion fails it flashes an error message and redirects the user back to the user dashboard
+    """
+    success = RequestOperations.delete_leave_request(request_id, session['user_id'])
+    
+    if success:
+        flash('Leave request deleted successfully!', 'success')
+    else:
+        flash('Failed to delete leave request.', 'error')
+
+    return redirect(url_for('user_dashboard'))
+
+
+
 @app.route('/admin_dashboard', methods=['GET'])
 
 def admin():

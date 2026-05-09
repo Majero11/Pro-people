@@ -113,3 +113,29 @@ class RequestOperations:
             if cursor:
                 cursor.close()
             close_db_connection()
+            
+    @staticmethod
+    def delete_leave_request(request_id, user_id):
+        conn = None
+        cursor = None
+        
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            
+            if cursor is None:
+                return False
+            
+            query = 'DELETE FROM leave_requests WHERE request_id = %s AND user_id = %s'
+            cursor.execute(query, (request_id, user_id))
+            conn.commit()
+            return True
+
+        
+        except Exception as e:
+            print(f"Error deleting leave request: {e}")
+            return False
+        finally:
+            if cursor:
+                cursor.close()
+            close_db_connection()
