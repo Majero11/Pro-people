@@ -98,6 +98,7 @@ main{
     font-size: .75rem;
     color: #037A5D;
     text-decoration: none;
+    border: none;
     }
 
 .activity-section{
@@ -162,7 +163,7 @@ p{
 
 .leave-request-section
 {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
@@ -177,9 +178,17 @@ p{
     , #037A68 100%);
 }   
 
-.date-inputs{
+.leave-request-form{
     display: flex;
+    flex-direction: column;
     gap: 10px;
+}
+
+.form-row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .leave-heading{
@@ -187,8 +196,10 @@ p{
 }
 
 .apply-btn{
+    display: block;
     width: 110px;
     align-items: center;
+    margin-top: 10px;
 }
 
 .form-label{
@@ -197,4 +208,14 @@ p{
     color: #fff;
     margin-top: .3rem;
     margin-right: 15px;
+}
+
+.form-input{
+    background: none;
+    text-decoration: none;
+    border: none;
+    border-bottom: solid 1px #fff;
+    color: #fff;
+    padding: 5px;
+    font-weight: 100;
 }

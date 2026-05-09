@@ -85,3 +85,31 @@ class EmployeeOperations:
             if cursor:
                 cursor.close()
             close_db_connection()
+            
+class RequestOperations:
+    
+    @staticmethod
+    def create_leave_request(user_id, start_date, end_date, leave_type):
+        conn = None
+        cursor = None
+        
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            
+            if cursor is None:
+                return False
+            
+            query = 'INSERT INTO leave_requests (user_id, start_date, end_date, leave_type) VALUES (%s, %s, %s, %s)'
+            cursor.execute(query, (user_id, start_date, end_date, leave_type))
+            conn.commit()
+            return True
+
+        
+        except Exception as e:
+            print(f"Error creating leave request: {e}")
+            return False
+        finally:
+            if cursor:
+                cursor.close()
+            close_db_connection()

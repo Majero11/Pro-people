@@ -2,7 +2,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
 
 from config.database import get_db_connection
-from app.models import DatabaseOperations, LeaveOperations, EmployeeOperations
+from app.models import DatabaseOperations, LeaveOperations, EmployeeOperations, RequestOperations
 
 from app import app
 
@@ -51,7 +51,33 @@ def user_dashboard():
 
     return render_template('user_dashboard.html', leave_requests=leave_requests, user=user)
 
+
+@app.route('/submit_leave', methods=['POST'])
+def submit_leave():
+    """handles the submission of a leave request form
+    it gets the user id from the session and the form data for start date, end date and leave type
+    it then calls the create_leave_request method from the RequestOperations class to create the leave request in the database
+    if the request is created successfully it flashes a success message and redirects the user back to the user dashboard
+    if the request creation fails it flashes an error message and redirects the user back to the user dashboard
+    """
+    user_id = session['user_id']
+    
+    start_date = request.form.get('start_date')
+    end_date = request.form.get('end_date')
+    leave_type = request.form.get('leave_type')
+
+    success = RequestOperations.create_leave_request(user_id, start_date, end_date, leave_type)
+    
+    if success:
+        flash('Leave request submitted successfully!', 'success')
+    else:
+        flash('Failed to submit leave request.', 'error')
+
+    return redirect(url_for('user_dashboard'))
+
+
 @app.route('/admin_dashboard', methods=['GET'])
+
 def admin():
     """render the user_dashboard.html
     """

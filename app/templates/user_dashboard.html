@@ -21,8 +21,8 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <a href="#" class="btn">Update Details</a>
-                    <a href="#" class="btn">Request Leave</a>
+                    <button class="btn btn_update_details">Update Details</button>
+                    <button class="btn btn_request_leave">Request Leave</button>
                 </div>
 
             </div>
@@ -61,18 +61,29 @@
             </div>  
             <div class="leave-request-section">
                 <h2 class="leave-heading">Leave Requests</h2>
-                <form action="leave-request-form"></form>
-                    <div class="date-inputs">
-                    <label class="form-label" for="start_date">Start Date</label>
-                    <input type="date" id="start_date" name="start_date" placeholder="YYYY-MM-DD">
+                <form action="/submit_leave" method="post" class="leave-request-form">
+                    <div class="form-row">
+                    <label class="form-label" for="start_date">Start Date:</label>
+                    <input  class="form-input" type="date" id="start_date" name="start_date" placeholder="YYYY-MM-DD" required>
                     </div>
-                    <div class="date-inputs">
-                    <label class="form-label" for="end_date">End Date</label>
-                    <input type="date" id="end_date" name="end_date" placeholder="YYYY-MM-DD">
+                    <div class="form-row">
+                    <label class="form-label" for="end_date">End Date:</label>
+                    <input class="form-input" type="date" id="end_date" name="end_date" placeholder="YYYY-MM-DD" required>
                     </div>
-                    <a href="#" class="btn apply-btn">Apply for Leave</a>
+                    <div class="form-row">
+                        <label class="form-label" for="leave_type">Leave Type:</label>
+                        <select class="form-input" id="leave_type" name="leave_type" required>
+                            <option value="annual">Select Leave Type</option>
+                            <option value="annual">Annual Leave</option>
+                            <option value="sick">Sick Leave</option>
+                            <option value="maternity">Maternity Leave</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn apply-btn">Apply for Leave</button>
+                </form>
 
             </div>
         </div>
     </main>  
+    <script src="{{ url_for('static', filename='js/user_dashboard/user_dashboard.js') }}"></script>
 {% endblock %}
