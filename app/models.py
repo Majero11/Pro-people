@@ -139,3 +139,29 @@ class RequestOperations:
             if cursor:
                 cursor.close()
             close_db_connection()
+            
+    @staticmethod
+    def update_user_details(user_id, password, email, contact):
+        conn = None
+        cursor = None
+        
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            
+            if cursor is None:
+                return False
+            
+            query = 'UPDATE users SET password = %s, email = %s, contact = %s WHERE user_id = %s'
+            cursor.execute(query, (password, email, contact, user_id))
+            conn.commit()
+            return True
+
+        
+        except Exception as e:
+            print(f"Error updating user details: {e}")
+            return False
+        finally:
+            if cursor:
+                cursor.close()
+            close_db_connection()

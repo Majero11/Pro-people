@@ -92,6 +92,27 @@ def delete_leave(request_id):
 
     return redirect(url_for('user_dashboard'))
 
+@app.route("/update_user_details", methods=['POST'])
+def update_user_details():
+    """handles the updating of user details
+    it gets the user id from the session and the form data for position, department, email and contact
+    it then calls the update_user_details method from the RequestOperations class to update the user details in the database
+    if the update is successful it flashes a success message and redirects the user back to the user dashboard
+    if the update fails it flashes an error message and redirects the user back to the user dashboard
+    """
+    user_id = session['user_id']
+    
+    password = request.form.get('password')
+    email = request.form.get('email')
+    contact = request.form.get('contact')
+
+    success = RequestOperations.update_user_details(user_id, password, email, contact)
+    if success:
+        flash('User details updated successfully!', 'success')
+    else:
+        flash('Failed to update user details.', 'error')
+
+    return redirect(url_for('user_dashboard'))
 
 
 @app.route('/admin_dashboard', methods=['GET'])
