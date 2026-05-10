@@ -152,8 +152,14 @@ class RequestOperations:
             if cursor is None:
                 return False
             
-            query = 'UPDATE users SET password = %s, email = %s, contact = %s WHERE user_id = %s'
-            cursor.execute(query, (password, email, contact, user_id))
+            if password and password.strip():
+                query = 'UPDATE users SET password = %s, email = %s, contact = %s WHERE user_id = %s'
+                
+                cursor.execute(query, (password, email, contact, user_id))
+            else:
+              query = 'UPDATE users SET email = %s, contact = %s WHERE user_id = %s'
+            
+            cursor.execute(query, (email, contact, user_id))
             conn.commit()
             return True
 

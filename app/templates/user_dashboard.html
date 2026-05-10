@@ -88,15 +88,15 @@
                 <form action="/update_user_details" method="post" class="update-user-form">
                     <div class="form-row">
                     <label class="form-label" for="password">Password:</label>
-                    <input class="form-input" type="text" id="password" name="password"  placeholder="Enter a new password (leave blank to keep current)"">
+                    <input class="form-input" type="text" id="password" name="password"  placeholder="Enter a new password (leave blank to keep current)">
                     </div>
                     <div class="form-row">
                     <label class="form-label" for="email">Email:</label>
                     <input class="form-input" type="email" id="email" name="email"  value="{{ user.email }}">
                     </div>
                     <div class="form-row">
-                    <label class="form-label" for="phone">Phone:</label>
-                    <input class="form-input" type="text" id="phone" name="phone"  value="{{ user.phone }}">
+                    <label class="form-label" for="contact">Phone:</label>
+                    <input class="form-input" type="text" id="contact" name="contact"  value="{{ user.contact }}">
                     </div>
                     <button type="submit" class="btn update-btn">Update</button>
                 </form>
