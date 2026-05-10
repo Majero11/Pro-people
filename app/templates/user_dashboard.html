@@ -59,6 +59,12 @@
                     <p>No leave applications found.</p>
                 {%endif%}   
             </div>  
+            <form action="/logout" method="post">
+                <div class="log-out">
+                    <button class="btn btn_log_out" type="submit">Log Out</button>
+                </div>
+            </form>
+
             <div class="leave-request-section">
                 <h2 class="leave-heading">Leave Requests</h2>
                 <form action="/submit_leave" method="post" class="leave-request-form">
@@ -87,7 +93,7 @@
                 <h2 class="leave-heading">User Details Update</h2>
                 <form action="/update_user_details" method="post" class="update-user-form">
                     <div class="form-row">
-                    <label class="form-label" for="password">Password:</label>
+                    <label class="form-label" for="password">New Password:</label>
                     <input class="form-input" type="text" id="password" name="password"  placeholder="Enter a new password (leave blank to keep current)">
                     </div>
                     <div class="form-row">

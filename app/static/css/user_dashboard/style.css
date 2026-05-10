@@ -26,6 +26,7 @@ main{
     display: flex;
     width: 95%;
     /* background-color: aqua; */
+    height: 600px;
 }
 
 
@@ -207,7 +208,7 @@ p{
     font-weight: 300;
     color: #fff;
     margin-top: .3rem;
-    width: 80px;
+    width: 100px;
     margin-right: 15px;
 }
 
@@ -237,4 +238,10 @@ p{
     background: radial-gradient(circle at top left , #42b37c 20%
     , #037A68 100%);
     width: 400px;
+}
+
+.btn_log_out{
+    position: absolute;
+    top: 89%;
+    left: 85%;
 }

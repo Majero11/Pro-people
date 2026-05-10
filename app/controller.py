@@ -121,3 +121,11 @@ def admin():
     """render the user_dashboard.html
     """
     return render_template('admin_dashboard.html')
+
+@app.route('/logout', methods=['POST'])
+
+def logout():
+    """render the index.html
+    """
+    session.clear()
+    return render_template('index.html')
