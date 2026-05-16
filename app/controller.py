@@ -1,6 +1,11 @@
 # imports methods and objects from flask 
+<<<<<<< HEAD
+=======
+from email.mime import message
+>>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
 from flask import render_template, request, redirect, url_for, flash, session
 
+from app.models import DatabaseOperations
 from config.database import get_db_connection
 from app.models import DatabaseOperations, LeaveOperations, EmployeeOperations, RequestOperations, AdminOperations
 
@@ -23,8 +28,13 @@ def index():
         user = DatabaseOperations.get_user(email, password)
         
         if user is not None:
+<<<<<<< HEAD
             #create a session 
             session['user_id'] = user[0]
+=======
+            # create a session for the user
+            session['employee_id'] = user[0]
+>>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
             session['first_name'] = user[1]
             session['last_name'] = user[2]
             session['is_admin'] = user[3]
@@ -32,8 +42,13 @@ def index():
             if session['is_admin']:
                 return redirect(url_for('admin_dashboard'))
             else:
+<<<<<<< HEAD
 
                 return redirect(url_for('user_dashboard'))
+=======
+                return redirect(url_for('user_dashboard'))
+            
+>>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
 
         flash('Wrong credentials. Please try again.', 'error')
         return redirect(url_for('index'))
