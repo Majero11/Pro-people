@@ -1,8 +1,4 @@
 # imports methods and objects from flask 
-<<<<<<< HEAD
-=======
-from email.mime import message
->>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
 from flask import render_template, request, redirect, url_for, flash, session
 
 from app.models import DatabaseOperations
@@ -28,13 +24,8 @@ def index():
         user = DatabaseOperations.get_user(email, password)
         
         if user is not None:
-<<<<<<< HEAD
             #create a session 
             session['user_id'] = user[0]
-=======
-            # create a session for the user
-            session['employee_id'] = user[0]
->>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
             session['first_name'] = user[1]
             session['last_name'] = user[2]
             session['is_admin'] = user[3]
@@ -42,13 +33,8 @@ def index():
             if session['is_admin']:
                 return redirect(url_for('admin_dashboard'))
             else:
-<<<<<<< HEAD
 
                 return redirect(url_for('user_dashboard'))
-=======
-                return redirect(url_for('user_dashboard'))
-            
->>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
 
         flash('Wrong credentials. Please try again.', 'error')
         return redirect(url_for('index'))
@@ -77,6 +63,7 @@ def submit_leave():
     """
     user_id = session['user_id']
     
+    
     start_date = request.form.get('start_date')
     end_date = request.form.get('end_date')
     leave_type = request.form.get('leave_type')
@@ -88,7 +75,10 @@ def submit_leave():
     else:
         flash('Failed to submit leave request.', 'error')
 
-    return redirect(url_for('user_dashboard'))
+    if session['is_admin']:
+     return redirect(url_for('admin_dashboard'))
+    else:
+     return redirect(url_for('user_dashboard'))
 
 
 @app.route('/delete_leave/<int:request_id>', methods=['POST'])
@@ -105,7 +95,10 @@ def delete_leave(request_id):
     else:
         flash('Failed to delete leave request.', 'error')
 
-    return redirect(url_for('user_dashboard'))
+    if session['is_admin']:
+        return redirect(url_for('admin_dashboard'))
+    else:
+        return redirect(url_for('user_dashboard'))
 
 @app.route("/update_user_details", methods=['POST'])
 def update_user_details():

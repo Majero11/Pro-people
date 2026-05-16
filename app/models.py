@@ -1,9 +1,6 @@
 from config.database import get_db_connection, close_db_connection
-<<<<<<< HEAD
 from psycopg.rows import dict_row
 
-=======
->>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
 
 class DatabaseOperations:
     
@@ -27,16 +24,11 @@ class DatabaseOperations:
             
             user = cursor.fetchone()
             cursor.close()
-<<<<<<< HEAD
-=======
-            close_db_connection()
->>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5
             return user
         except Exception as e:
             print(f"Error fetching user: {e}")
             return None
         finally:
-<<<<<<< HEAD
             close_db_connection()
             
 class LeaveOperations:
@@ -226,6 +218,3 @@ class AdminOperations:
         finally:
             cursor.close()
             conn.close()
-=======
-            close_db_connection()
->>>>>>> 8ce6ebd4efb7aac194d9ae5ef9b9438c63c674f5

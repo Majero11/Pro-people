@@ -58,8 +58,12 @@
                                     <form method="post" action="/update_leave_status">
                                         <input type="hidden" name="request_id" value="{{leave.request_id}}">
                                         <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>
-                                        <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>
-
+                                        <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>                                   
+                                    </form>
+                                </td>
+                                <td>
+                                    <form method="post" action="/delete_leave/{{ leave.request_id }}">
+                                        <button class="btn btn_delete" type="submit">Delete</button>
                                     </form>
                                 </td>
                             </tr>
