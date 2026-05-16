@@ -55,8 +55,11 @@
                                 <td class="table-contents">{{ leave.days_applied }}</td>
                                 <td class="table-contents">{{ leave.status }}</td>
                                 <td>
-                                    <form method="post" action="/delete_leave/{{ leave.request_id }}">
-                                        <button class="btn btn_delete" type="submit">Delete</button>
+                                    <form method="post" action="/update_leave_status">
+                                        <input type="hidden" name="request_id" value="{{leave.request_id}}">
+                                        <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>
+                                        <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>
+
                                     </form>
                                 </td>
                             </tr>
@@ -71,6 +74,16 @@
             <div class="log-out">
                 <a href="{{url_for('logout')}}">Log Out</a>
             </div>
+
+            <!-- <div class="approve-section">
+                <form action="/update_leave_status" method="post">
+                    <input type="hidden" name="request_id" id="selected_request_id">
+                    <button class="btn approvalbtn" value="approve">Approve</button>
+
+                    <button class="btn approvalbtn" value="decline">Decline</button>
+                </form>
+            </div> -->
+
 
             <div class="leave-request-section">
                 <h2 class="leave-heading">Leave Requests</h2>
@@ -116,5 +129,5 @@
             </div>
         </div>
     </main>  
-    <script src="{{ url_for('static', filename='js/user_dashboard/user_dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin_dashboard/admin_dashboard.js') }}"></script>
 {% endblock %}

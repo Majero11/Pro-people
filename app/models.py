@@ -197,3 +197,24 @@ class AdminOperations:
             if cursor:
                 cursor.close()
             close_db_connection()
+            
+    @staticmethod
+    def update_leave_request(request_id, status):
+        conn = get_db_connection()
+        cursor = conn.cursor(row_factory=dict_row)
+        
+        try:
+            query = ' UPDATE leave_requests SET status = %s WHERE request_id = %s'
+            
+            values = (status, request_id)
+            cursor.execute(query, values)
+            conn.commit()
+            
+            return True
+            
+        except Exception as e:
+            print(f"Error updating status: {e}")
+            return False
+        finally:
+            cursor.close()
+            conn.close()

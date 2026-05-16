@@ -125,6 +125,31 @@ def admin_dashboard():
 
     return render_template('admin_dashboard.html', user=user, leave_requests=leave_requests)
 
+@app.route('/update_leave_status', methods=['POST'])
+def update_leave_status():
+    """This function handles leave approval or rejection
+    """
+    request_id = request.form.get("request_id")
+    status = request.form.get('status')
+    # # action = request.form.get('status')
+    
+    # if action == 'approve':
+    #     status = 'Approved'
+    # elif action == 'decline':
+    #     status = 'declined'
+    # else:
+    #     flash('invalid action')
+    #     return redirect(url_for('admin_dashboard'))
+    
+    success = AdminOperations.update_leave_request(request_id, status)
+    
+    if success:
+        flash(F'leave request {status.lower} succefully', 'success')
+    else:
+        flash('Failed to update leave request.', 'error')    
+        
+    return redirect(url_for('admin_dashboard'))
+
 @app.route('/logout')
 def logout():
     """render the index.html
