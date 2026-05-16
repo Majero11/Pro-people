@@ -116,11 +116,13 @@ def update_user_details():
 
 
 @app.route('/admin_dashboard', methods=['GET'])
-
-def admin():
+def admin_dashboard():
     """render the user_dashboard.html
     """
-    return render_template('admin_dashboard.html')
+    user_id = session['user_id']
+    user = EmployeeOperations.get_user_details(user_id)
+
+    return render_template('admin_dashboard.html', user=user)
 
 @app.route('/logout', methods=['POST'])
 
