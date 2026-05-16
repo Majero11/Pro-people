@@ -124,10 +124,9 @@ def admin_dashboard():
 
     return render_template('admin_dashboard.html', user=user)
 
-@app.route('/logout', methods=['POST'])
-
+@app.route('/logout')
 def logout():
     """render the index.html
     """
     session.clear()
-    return render_template('index.html')
+    return redirect(url_for('index'))

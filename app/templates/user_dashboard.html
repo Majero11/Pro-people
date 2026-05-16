@@ -59,11 +59,10 @@
                     <p>No leave applications found.</p>
                 {%endif%}   
             </div>  
-            <form action="/logout" method="post">
-                <div class="log-out">
-                    <button class="btn btn_log_out" type="submit">Log Out</button>
-                </div>
-            </form>
+
+            <div class="log-out">
+                <a href="{{url_for('logout')}}">Log Out</a>
+            </div>
 
             <div class="leave-request-section">
                 <h2 class="leave-heading">Leave Requests</h2>
