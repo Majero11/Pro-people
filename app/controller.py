@@ -2,7 +2,7 @@
 from flask import render_template, request, redirect, url_for, flash, session
 
 from config.database import get_db_connection
-from app.models import DatabaseOperations, LeaveOperations, EmployeeOperations, RequestOperations
+from app.models import DatabaseOperations, LeaveOperations, EmployeeOperations, RequestOperations, AdminOperations
 
 from app import app
 
@@ -121,8 +121,9 @@ def admin_dashboard():
     """
     user_id = session['user_id']
     user = EmployeeOperations.get_user_details(user_id)
+    leave_requests = AdminOperations.get_all_user_requests()
 
-    return render_template('admin_dashboard.html', user=user)
+    return render_template('admin_dashboard.html', user=user, leave_requests=leave_requests)
 
 @app.route('/logout')
 def logout():

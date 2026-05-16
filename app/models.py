@@ -171,3 +171,29 @@ class RequestOperations:
             if cursor:
                 cursor.close()
             close_db_connection()
+            
+class AdminOperations:
+    @staticmethod
+    def get_all_user_requests():
+        conn = None
+        cursor = None
+        
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor(row_factory=dict_row)
+            
+            if cursor is None:
+                return None
+            
+            query = 'SELECT lr.request_id, u.first_name, u.last_name, lr.leave_type, lr.start_date, lr.end_date, lr.days_applied, lr.status FROM leave_requests lr JOIN users u ON lr.user_id = u.user_id ORDER BY lr.request_id DESC'
+            cursor.execute(query)            
+            return cursor.fetchall()
+
+        
+        except Exception as e:
+            print(f"Error fetching leave requests: {e}")
+            return []
+        finally:
+            if cursor:
+                cursor.close()
+            close_db_connection()

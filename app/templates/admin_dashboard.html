@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard/styles.css') }}">
 {% endblock %}
 {% block title %}ProPeople - User Dashboard{% endblock %}
 {% block content %}
@@ -32,6 +32,10 @@
                     <table>
                         <thead>
                             <tr>
+                                <th class="table-header">Request_id</th>
+                                <th class="table-header">First Name</th>
+                                <th class="table-header">Last Name</th>
+                                <th class="table-header">Leave Type</th>
                                 <th class="table-header">Start_Date</th>
                                 <th class="table-header">End_Date</th>
                                 <th class="table-header">Days Applied</th>
@@ -42,6 +46,10 @@
                         <tbody>
                             {%for leave in leave_requests%}
                             <tr>
+                                <td class="table-contents">{{ leave.request_id }}</td>
+                                <td class="table-contents">{{ leave.first_name }}</td>
+                                <td class="table-contents">{{ leave.last_name }}</td>
+                                <td class="table-contents">{{ leave.leave_type }}</td>
                                 <td class="table-contents">{{ leave.start_date }}</td>
                                 <td class="table-contents">{{ leave.end_date }}</td>
                                 <td class="table-contents">{{ leave.days_applied }}</td>
@@ -59,6 +67,11 @@
                     <p>No leave applications found.</p>
                 {%endif%}   
             </div>  
+
+            <div class="log-out">
+                <a href="{{url_for('logout')}}">Log Out</a>
+            </div>
+
             <div class="leave-request-section">
                 <h2 class="leave-heading">Leave Requests</h2>
                 <form action="/submit_leave" method="post" class="leave-request-form">
