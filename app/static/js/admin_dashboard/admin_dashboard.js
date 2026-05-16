@@ -9,6 +9,8 @@ const tabs = document.querySelector('.tabs');
 const Users = document.querySelector('.users');
 const Request = document.querySelector('.requests');
 const AdminRequest = document.querySelector('.admin_requests');
+const reviewRequest = document.querySelector('.activity-section');
+
 
 
 leaveRequestBtn.addEventListener('click', () => {
@@ -37,6 +39,7 @@ Users.addEventListener('click', () => {
 });
 
 Request.addEventListener('click', () => {
+    reviewRequest.style.display = 'flex'
     Request.style.background = '#037A5D';
     Request.style.color = '#fff';
     Users.style.background = 'none';

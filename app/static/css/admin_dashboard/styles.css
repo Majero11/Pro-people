@@ -113,8 +113,14 @@ main{
 
 .tabs{
     display: flex;
+    justify-content: space-between;
     margin-left: 20px;
+    border-bottom: solid 1px #037A5D;
 }
+
+/* .hidden{
+    display: none !important;
+} */
 
 .tab-heading{
     margin-right: 10px;
@@ -124,10 +130,12 @@ main{
     border-top-right-radius: 5px;
     font-size: .8rem;
     color: #037A5D;
+    width: 295px;
+
 }
 
 .activity-section{
-   display: flex;
+   display: none;
     flex-direction: column;
     width: 60vw;
     margin-left: 20px;
