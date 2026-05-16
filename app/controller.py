@@ -120,7 +120,10 @@ def update_user_details():
     else:
         flash('Failed to update user details.', 'error')
 
-    return redirect(url_for('user_dashboard'))
+    if session['is_admin']:
+        return redirect(url_for('admin_dashboard'))
+    else:
+        return redirect(url_for('user_dashboard'))
 
 
 @app.route('/admin_dashboard', methods=['GET'])

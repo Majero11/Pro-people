@@ -27,66 +27,64 @@
 
             </div>
 
-            <div class="activity-section">
-                {%if leave_requests%}
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="table-header">Request_id</th>
-                                <th class="table-header">First Name</th>
-                                <th class="table-header">Last Name</th>
-                                <th class="table-header">Leave Type</th>
-                                <th class="table-header">Start_Date</th>
-                                <th class="table-header">End_Date</th>
-                                <th class="table-header">Days Applied</th>
-                                <th class="table-header">Status</th>
-                            </tr>
-                        </thead>
+            <div class="right_section">
+                <div class="tabs">
+                    <div class="tab-heading users">Users</div>
+                    <div class="tab-heading requests">Request</div>
+                    <div class="tab-heading admin_requests">Admin Request</div>
+                </div>
+                <div class="activity-section">
+                    {%if leave_requests%}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="table-header">Request_id</th>
+                                    <th class="table-header">First Name</th>
+                                    <th class="table-header">Last Name</th>
+                                    <th class="table-header">Leave Type</th>
+                                    <th class="table-header">Start_Date</th>
+                                    <th class="table-header">End_Date</th>
+                                    <th class="table-header">Days Applied</th>
+                                    <th class="table-header">Status</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            {%for leave in leave_requests%}
-                            <tr>
-                                <td class="table-contents">{{ leave.request_id }}</td>
-                                <td class="table-contents">{{ leave.first_name }}</td>
-                                <td class="table-contents">{{ leave.last_name }}</td>
-                                <td class="table-contents">{{ leave.leave_type }}</td>
-                                <td class="table-contents">{{ leave.start_date }}</td>
-                                <td class="table-contents">{{ leave.end_date }}</td>
-                                <td class="table-contents">{{ leave.days_applied }}</td>
-                                <td class="table-contents">{{ leave.status }}</td>
-                                <td>
-                                    <form method="post" action="/update_leave_status">
-                                        <input type="hidden" name="request_id" value="{{leave.request_id}}">
-                                        <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>
-                                        <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>                                   
-                                    </form>
-                                </td>
-                                <td>
-                                    <form method="post" action="/delete_leave/{{ leave.request_id }}">
-                                        <button class="btn btn_delete" type="submit">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            {%endfor%}
-                        </tbody>
-                    </table>
-                {%else%}
-                    <p>No leave applications found.</p>
-                {%endif%}   
-            </div>  
+                            <tbody>
+                                {%for leave in leave_requests%}
+                                <tr>
+                                    <td class="table-contents">{{ leave.request_id }}</td>
+                                    <td class="table-contents">{{ leave.first_name }}</td>
+                                    <td class="table-contents">{{ leave.last_name }}</td>
+                                    <td class="table-contents">{{ leave.leave_type }}</td>
+                                    <td class="table-contents">{{ leave.start_date }}</td>
+                                    <td class="table-contents">{{ leave.end_date }}</td>
+                                    <td class="table-contents">{{ leave.days_applied }}</td>
+                                    <td class="table-contents">{{ leave.status }}</td>
+                                    <td>
+                                        <form method="post" action="/update_leave_status">
+                                            <input type="hidden" name="request_id" value="{{leave.request_id}}">
+                                            <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>
+                                            <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>                                   
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="/delete_leave/{{ leave.request_id }}">
+                                            <button class="btn btn_delete" type="submit">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    {%else%}
+                        <p>No leave applications found.</p>
+                    {%endif%}   
+                </div>  
 
-            <div class="log-out">
-                <a href="{{url_for('logout')}}">Log Out</a>
+                <div class="log-out">
+                    <a href="{{url_for('logout')}}">Log Out</a>
+                </div>
             </div>
-
-            <!-- <div class="approve-section">
-                <form action="/update_leave_status" method="post">
-                    <input type="hidden" name="request_id" id="selected_request_id">
-                    <button class="btn approvalbtn" value="approve">Approve</button>
-
-                    <button class="btn approvalbtn" value="decline">Decline</button>
-                </form>
-            </div> -->
 
 
             <div class="leave-request-section">
