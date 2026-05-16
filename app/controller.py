@@ -131,20 +131,11 @@ def update_leave_status():
     """
     request_id = request.form.get("request_id")
     status = request.form.get('status')
-    # # action = request.form.get('status')
-    
-    # if action == 'approve':
-    #     status = 'Approved'
-    # elif action == 'decline':
-    #     status = 'declined'
-    # else:
-    #     flash('invalid action')
-    #     return redirect(url_for('admin_dashboard'))
     
     success = AdminOperations.update_leave_request(request_id, status)
     
     if success:
-        flash(F'leave request {status.lower} succefully', 'success')
+        flash(F'leave request {status.lower()} succefully', 'success')
     else:
         flash('Failed to update leave request.', 'error')    
         

@@ -204,7 +204,7 @@ class AdminOperations:
         cursor = conn.cursor(row_factory=dict_row)
         
         try:
-            query = ' UPDATE leave_requests SET status = %s WHERE request_id = %s'
+            query = ' UPDATE leave_requests SET status = %s, approved_at = current_timestamp WHERE request_id = %s'
             
             values = (status, request_id)
             cursor.execute(query, values)
