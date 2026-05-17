@@ -9,7 +9,6 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     min-height: 100vh;
     padding: 20px;
 }
@@ -25,7 +24,6 @@ main{
 .dashboard-container{
     display: flex;
     width: 95%;
-    /* background-color: aqua; */
     height: 600px;
 }
 
@@ -106,6 +104,7 @@ main{
    display: flex;
     flex-direction: column;
     width: 60vw;
+    max-height: 600px;
     margin-left: 20px;
 }
 
@@ -245,7 +244,7 @@ p{
     background-color: #DCD095;
     border-radius: 20px;
     padding: 5px;
-    top: 89%;
+    top: 97%;
     left: 87%;
     font-size: .75rem;
 }
@@ -265,4 +264,67 @@ a{
 .cancel-btn{
     height: 30px;
     margin-top: 8px;
+}
+
+
+/* ============================================================= */
+/* ----------------------- Break Points ------------------------ */
+/* ============================================================= */
+
+
+/* ============================== 769=========================== */
+@media (max-width: 769px) {
+    .dashboard-container{
+        width: 95%;
+    }
+
+    .profile-section{
+        width: 400px;
+        margin-bottom: 30px;
+    }
+
+    .buttons{
+    gap: 100px;
+    }
+
+    .dashboard-container{
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .log-out{
+    position: relative;
+    top: 0;
+    left: 0;
+    align-self: flex-end;
+    margin-top: 10px;
+    font-size: .65rem;
+    }
+
+    .activity-section{
+        width: 80vw;
+    }
+
+    .table-header{
+        font-size: .87rem;
+    }
+
+    .table-contents{
+    font-size: .65rem;
+    }
+    .btn_delete{
+        font-size: .65rem;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    .profile-section{
+    width: 250px;
+    }
+
+    .buttons{
+    gap: 20px;
+    }
+    
 }
