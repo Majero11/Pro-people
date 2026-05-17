@@ -148,7 +148,14 @@ main{
     width: 95%vw;
     margin-left: 20px;
 }
-.users_table{
+
+.admin_request_details{
+    display:none;
+    width: 95%vw;
+    margin-left: 20px;
+}
+
+.table{
     width: 100%;
 }
 
@@ -338,4 +345,8 @@ a{
 
 input::placeholder{
     color: #fff;
+}
+
+.leave-heading{
+    color: #037A5D;
 }

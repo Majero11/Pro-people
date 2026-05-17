@@ -126,6 +126,7 @@ def update_user_details():
         return redirect(url_for('user_dashboard'))
 
 
+
 @app.route('/admin_dashboard', methods=['GET'])
 def admin_dashboard():
     """render the user_dashboard.html
@@ -134,8 +135,10 @@ def admin_dashboard():
     user = EmployeeOperations.get_user_details(user_id)
     leave_requests = AdminOperations.get_all_user_requests()
     users = AdminOperations.get_all_users()
+    admin_requests = AdminOperations.get_admin_requests()
 
-    return render_template('admin_dashboard.html', user=user, leave_requests=leave_requests, users=users)
+    return render_template('admin_dashboard.html', user=user, leave_requests=leave_requests, users=users, admin_requests=admin_requests)
+
 
 @app.route('/update_leave_status', methods=['POST'])
 def update_leave_status():

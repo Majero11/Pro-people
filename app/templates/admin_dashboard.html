@@ -87,7 +87,7 @@
 <!--USERS VIEW -->
                 <div id="usersView">
                     {%if users%}
-                        <table class="users_table">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th class="table-header">Name</th>
@@ -123,13 +123,12 @@
                 <div class="log-out">
                     <a href="{{url_for('logout')}}">Log Out</a>
                 </div>
-            </div>
 
-<!-- ADMIN REQUESTS DETAILS
+<!-- ADMIN REQUESTS DETAILS -->
 
-                    <div class="activity-section">
-                {%if leave_requests%}
-                    <table>
+            <div class="admin_request_details">
+                {%if admin_requests%}
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th class="table-header">Start_Date</th>
@@ -140,7 +139,7 @@
                         </thead>
 
                         <tbody>
-                            {%for leave in leave_requests%}
+                            {%for leave in admin_requests%}
                             <tr>
                                 <td class="table-contents">{{ leave.start_date }}</td>
                                 <td class="table-contents">{{ leave.end_date }}</td>
@@ -158,7 +157,7 @@
                 {%else%}
                     <p>No leave applications found.</p>
                 {%endif%}   
-            </div>   -->
+            </div>  
 
 <!--  LEAVE REQUESTS SECTION  -->
             <div class="leave-request-section">
@@ -207,28 +206,32 @@
 
 <!-- CREATE USER SECTION  -->
             <div class="Create-user-section">
-                <h2 class="leave-heading">User Details Update</h2>
+                <h2 class="leave-heading">Create User</h2>
                 <form action="/create_user" method="post" class="create-user-form">
                     <div class="form-row">
                         <label class="form-label" for="first_name">First Name:</label>
-                        <input class="form-input" type="text" id="first_name" name="first_name"  placeholder="Enter a name">
+                        <input class="form-input" type="text" id="first_name" name="first_name"  placeholder="Enter a name" required>
                     </div>
                     <div class="form-row">
                         <label class="form-label" for="last_name">Last Name:</label>
-                        <input class="form-input" type="text" id="last_name" name="last_name"  placeholder="Enter last name">
+                        <input class="form-input" type="text" id="last_name" name="last_name"  placeholder="Enter last name" required>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label" for="position">Position:</label>
+                        <input class="form-input" type="text" id="position" name="position"  placeholder="Enter position" required>
                     </div>
                     <div class="form-row">
                         <label class="form-label" for="email">Email:</label>
-                        <input class="form-input" type="email" id="email" name="email"  placeholder="Enter email">
+                        <input class="form-input" type="email" id="email" name="email"  placeholder="Enter email" required>
                     </div>
                     <div class="form-row">
                         <label class="form-label" for="password">Password:</label>
-                        <input class="form-input" type="password" id="password" name="password"  placeholder="Enter temporary password">
+                        <input class="form-input" type="password" id="password" name="password"  placeholder="Enter temporary password" required>
                     </div>
                     <div class="form-row">
                         <label class="form-label" for="department_id">Department Id:</label>
                         <select class="form-input" type="department_id" id="department_id" name="department_id"  required>
-                                <option value="" disable selected>Select department</option>
+                                <option value="" disabled selected>Select department</option>
                                 <option value="200">Sales</option>
                                 <option value="340">Production</option>
                                 <option value="100">HR</option>
@@ -237,11 +240,14 @@
                     </div>
                     <div class="form-row">
                         <label class="form-label" for="is_admin">Is_admin:</label>
-                        <input class="form-input" type="is_admin" id="is_admin" name="is_admin"  placeholder="Enter TRUE OR FALSE">
+                        <select class="form-input" type="text" id="is_admin" name="is_admin" required>
+                            <option value="FALSE">False</option>
+                            <option value="TRUE">True</option>
+                        </select>   
                     </div>
                     <div class="form-row">
                         <label class="form-label" for="contact">Phone:</label>
-                        <input class="form-input" type="text" id="contact" name="contact"  placeholder="Enter phone number">
+                        <input class="form-input" type="text" id="contact" name="contact"  placeholder="Enter phone number" required>
                     </div>
                     <button type="submit" class="btn update-btn">Create</button>
                 </form>
