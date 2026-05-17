@@ -48,6 +48,7 @@ Users.addEventListener('click', () => {
     AdminRequest.style.background = 'none';
 });
 
+
 Request.addEventListener('click', () => {
     reviewRequest.style.display = 'flex';
     adminRequestDetails.style.display = 'none'

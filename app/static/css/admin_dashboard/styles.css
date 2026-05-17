@@ -9,10 +9,10 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     min-height: 100vh;
     padding: 20px;
     width: auto;
+    overflow-x: auto;
 }
 
 .dash_heading{
@@ -26,7 +26,7 @@ main{
 .dashboard-container{
     display: flex;
     width: 95%;
-    /* background-color: aqua; */
+    justify-content: center;
     height: 600px;
 }
 
@@ -35,7 +35,7 @@ main{
 .profile-section{
     background: radial-gradient(circle at top left , #42b37c 20%
     , #037A68 100%);
-    width: 400px;
+    width: 30vw;
     height: 600px;
     border-radius: 10px;
     display: flex;
@@ -116,11 +116,9 @@ main{
     justify-content: space-between;
     margin-left: 20px;
     border-bottom: solid 1px #037A5D;
+    width: 60vw;
 }
 
-/* .hidden{
-    display: none !important;
-} */
 
 .tab-heading{
     margin-right: 10px;
@@ -135,24 +133,33 @@ main{
 }
 
 #requestView{
-   display: none;
+    display: none;
     flex-direction: column;
     width: 60vw;
     margin-left: 20px;
     border-top: solid 1px #037A5D;
-    height: 600px;
+    max-height: 600px;
+    overflow-x: auto;
 }
 
 #usersView{
     display: none;
-    width: 70vw;
+    flex-direction: column;
+    width: 60vw;
     margin-left: 20px;
+    border-top: solid 1px #037A5D;
+    max-height: 600px;
+    overflow-x: auto;
 }
 
 .admin_request_details{
-    display:none;
-    width: 70vw;
+    display: none;
+    flex-direction: column;
+    width: 60vw;
     margin-left: 20px;
+    border-top: solid 1px #037A5D;
+    max-height: 600px;
+    overflow-x: auto;
 }
 
 .table{
@@ -214,8 +221,7 @@ p{
     font-weight: 300;
 }
 
-.leave-request-section
-{
+.leave-request-section{
     display: none;
     flex-direction: column;
     gap: 10px;
@@ -229,6 +235,7 @@ p{
     border-radius: 10px;
     background: radial-gradient(circle at top left , #42b37c 20%
     , #037A68 100%);
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }   
 
 .leave-request-form{
@@ -290,6 +297,7 @@ p{
     background: radial-gradient(circle at top left , #42b37c 20%
     , #037A68 100%);
     width: 400px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
 .log-out{
@@ -297,7 +305,7 @@ p{
     background-color: #DCD095;
     border-radius: 20px;
     padding: 5px;
-    top: 89%;
+    top: 97%;
     left: 87.9%;
     font-size: .75rem;
 }
@@ -341,6 +349,7 @@ a{
     background: radial-gradient(circle at top left , #42b37c 20%
     , #037A68 100%);
     width: 400px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
 input::placeholder{
@@ -360,4 +369,229 @@ input::placeholder{
 .cancel-btn{
     height: 30px;
     margin-top: 8px;
+}
+
+/* ============================================================= */
+/* ----------------------- Break Points ------------------------ */
+/* ============================================================= */
+
+/* =========================== 1080px ========================== */
+@media (max-width: 1080px) {
+        .profile-section{
+        width: 30vw;
+    }
+
+    #usersView{
+        width: 60vw;
+    }
+
+    #requestView{
+        width: 60vw;
+    }
+
+    .admin_request_details{
+        width: 60vw;
+    }
+
+    .table-header{
+        font-size: .75rem;
+    }
+
+    .table-contents{
+        font-size: .65rem;
+    }
+
+    .btn_update_details{
+        font-size: .65rem;
+    }
+
+    .btn_authorise{
+        font-size: .55rem;
+    }
+
+    .btn_delete{
+        font-size: .55rem;
+    }
+
+    .profile_btns{
+        font-size: .55rem;
+    }
+    
+}
+
+
+/* ============================== 769=========================== */
+@media (max-width: 769px) {
+    .dashboard-container{
+        width: 95%;
+    }
+
+    .profile-section{
+        width: 80vw;
+        margin-bottom: 30px;
+    }
+
+    .buttons{
+    gap: 30px;
+    }
+
+    .dashboard-container{
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .log-out{
+    position: relative;
+    top: 0;
+    left: 0;
+    align-self: flex-end;
+    margin-top: 10px;
+    font-size: .55rem;
+    }
+
+    .activity-section{
+        width: 80vw;
+    }
+
+    .table-header{
+        font-size: .57rem;
+    }
+
+    .table-contents{
+    font-size: .65rem;
+    }
+
+    .btn_delete{
+        font-size: .65rem;
+    }
+
+    .profile_btns{
+        font-size: .55rem;
+        width: min(100px, 80px);
+    }
+
+    #requestView{
+        overflow-y: auto;
+        width: 80vw;
+    }
+
+    #usersView{
+        overflow-y: auto;
+        width: 80vw;
+    }
+
+    .admin_request_details{
+        overflow-y: auto;
+        width: 80vw;
+    }
+
+    .tab-heading {
+        font-size: .65rem;
+    }
+
+    .tabs{
+        width: 80vw
+    }
+    
+    
+}
+
+/* ============================== 480 =========================== */
+@media (max-width: 480px) {
+    .profile-section{
+        width: 80vw;
+    }
+
+    .buttons{
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .btn_update_details{
+        font-size: .60rem;
+    }
+
+    .btn_request_leave{
+        font-size: .60rem;
+    }
+
+    .dash_heading{
+        font-size: 1.2rem;
+    }
+
+    .welcome-note{
+        font-size: 1rem;
+    }
+
+    .details-title{
+        font-size: 1rem;
+    }
+
+    .user-info{
+        font-size: .7rem;
+    }
+
+    .table-header{
+        font-size: .60rem;
+    }
+
+    .table-contents{
+        font-size: .5rem;
+    }
+
+    .btn_delete{
+        font-size: .5rem;
+    }
+
+    .activity-section{
+        width: 90vw;
+    }
+
+        .log-out{
+    position: relative;
+    top: 0;
+    left: 0;
+    align-self: flex-end;
+    margin-top: 10px;
+    font-size: .55rem;
+    }
+
+    .profile_btns{
+        font-size: .55rem;
+    }
+
+    main{
+        overflow-x: auto;
+    }
+
+    .leave-request-section{
+        width: 90vw;
+    }
+
+    .Create-user-section{
+        width: 90vw;
+    }
+
+    .User-details-Update-section{
+        width: 90vw;
+    }
+
+    .btn_cont{
+        font-size: .55rem;
+    }
+
+    .form-input{
+        font-size: .55rem;
+    }
+
+    .form-label{
+        font-size: .55rem;
+    }
+
+    .leave-heading{
+        font-size: 1rem;
+    }
+
+    
+    
 }

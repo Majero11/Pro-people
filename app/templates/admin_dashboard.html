@@ -21,9 +21,9 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button class="btn btn_update_details">Update Details</button>
-                    <button class="btn btn_request_leave">Request Leave</button>
-                    <button class="btn btn_create_user">Create User</button>
+                    <button class="btn profile_btns btn_update_details">Update Details</button>
+                    <button class="btn profile_btns btn_request_leave">Request Leave</button>
+                    <button class="btn profile_btns btn_create_user">Create User</button>
                 </div>
 
             </div>
@@ -66,7 +66,12 @@
                                     <td>
                                         <form method="post" action="/update_leave_status">
                                             <input type="hidden" name="request_id" value="{{leave.request_id}}">
-                                            <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>
+                                            <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>                             
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="/update_leave_status">
+                                            <input type="hidden" name="request_id" value="{{leave.request_id}}">
                                             <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>                                   
                                         </form>
                                     </td>
@@ -120,10 +125,6 @@
                     {%endif%}   
                 </div>  
 
-                <div class="log-out">
-                    <a href="{{url_for('logout')}}">Log Out</a>
-                </div>
-
 <!-- ADMIN REQUESTS DETAILS -->
 
             <div class="admin_request_details">
@@ -158,6 +159,10 @@
                     <p>No leave applications found.</p>
                 {%endif%}   
             </div>  
+                <div class="log-out">
+                    <a href="{{url_for('logout')}}">Log Out</a>
+                </div>
+
 
 <!--  LEAVE REQUESTS SECTION  -->
             <div class="leave-request-section">
@@ -182,8 +187,8 @@
                     </div>
 
                     <div class="control-btns">
-                        <button type="submit" class="btn apply-btn">Apply for Leave</button>
-                        <button type="submit" class="btn cancel-btn" formnovalidate>Cancel</button>
+                        <button type="submit" class="btn apply-btn btn_cont">Apply for Leave</button>
+                        <button type="submit" class="btn cancel-btn btn_cont" formnovalidate>Cancel</button>
                     </div>
                 </form>
             </div>
