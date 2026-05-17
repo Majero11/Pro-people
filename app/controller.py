@@ -153,8 +153,8 @@ def update_leave_status():
         
     return redirect(url_for('admin_dashboard'))
 
-@app.route('/delete_user/<int:request_id>', methods=['POST'])
-def delete_user(user_id):
+@app.route('/delete_user/<int:user_id>', methods=['POST'])
+def delete_user_route(user_id):
     """handles the deletion of a user
     """
     success = AdminOperations.delete_user(user_id)
@@ -163,7 +163,7 @@ def delete_user(user_id):
         flash('User deleted successfully!', 'success')
     else:
         flash('Failed to delete user.', 'error')
-        return redirect(url_for('admin_dashboard'))
+    return redirect(url_for('admin_dashboard'))
     
     
 @app.route("/create_user", methods=['POST'])

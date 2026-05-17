@@ -94,7 +94,7 @@
                                     <th class="table-header">Position</th>
                                     <th class="table-header">Department</th>
                                     <th class="table-header">Email</th>
-                                    <th class="table-header">Conatact</th>
+                                    <th class="table-header">Contact</th>
                                 </tr>
                             </thead>
 
@@ -107,7 +107,7 @@
                                     <td class="table-contents">{{ user.email }}</td>
                                     <td class="table-contents">{{ user.contact }}</td>
                                     <td>
-                                        <form method="post" action="/delete_user }}">
+                                        <form method="post" action="/delete_user/{{ user.user_id}}">
                                             <button class="btn btn_delete" type="submit">Delete</button>
                                         </form>
                                     </td>

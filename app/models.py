@@ -210,7 +210,7 @@ class AdminOperations:
             if cursor is None:
                 return None
             
-            query = "SELECT CONCAT(u.first_name, ' ', u.last_name) AS name, u.position, d.department_name, u.email, u.contact FROM users u LEFT JOIN departments d ON u.department_id = d.department_id ORDER BY u.user_id DESC"
+            query = "SELECT u.user_id, CONCAT(u.first_name, ' ', u.last_name) AS name, u.position, d.department_name, u.email, u.contact FROM users u LEFT JOIN departments d ON u.department_id = d.department_id ORDER BY u.user_id DESC"
             cursor.execute(query)            
             return cursor.fetchall()
 
@@ -253,17 +253,14 @@ class AdminOperations:
             conn = get_db_connection()
             cursor = conn.cursor()
             
-            if cursor is None:
-                return False
-            
             query = 'DELETE FROM users WHERE user_id = %s'
-            cursor.execute(query, (user_id))
+            cursor.execute(query, (user_id,))
             conn.commit()
             return True
 
         
         except Exception as e:
-            print(f"Error deleting leave request: {e}")
+            print(f"Error user: {e}")
             return False
         finally:
             if cursor:
