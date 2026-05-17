@@ -1,7 +1,7 @@
 
 # from dotenv import load_dotenv, find_dotenv
 
-# load_dotenv(find_dotenv())
+
 
 
 
@@ -14,6 +14,9 @@
 #     SECRET_KEY = os.getenv('SECRET_KEY')
 #     DB_NAME = os.getenv('DB_NAME')
 import os 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
