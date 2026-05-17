@@ -5,7 +5,7 @@ const leaveRequestBtn = document.querySelector('.btn_request_leave');
 const updateDetailsSection = document.querySelector('.User-details-Update-section');
 const updateBtn = document.querySelector('.update-btn');
 const updateDetailsBtn = document.querySelector('.btn_update_details');
-const tabs = document.querySelector('.tabs');
+const tabs = document.querySelectorAll('.tabs');
 const Users = document.querySelector('.users');
 const Request = document.querySelector('.requests');
 const AdminRequest = document.querySelector('.admin_requests');
@@ -83,4 +83,3 @@ cancelBtn.addEventListener('click', () =>{
     leaveRequestSection.style.display = 'none'
     updateDetailsSection.style.display = 'none';
 })
-

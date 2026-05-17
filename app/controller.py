@@ -166,7 +166,7 @@ def delete_user_route(user_id):
         flash('User deleted successfully!', 'success')
     else:
         flash('Failed to delete user.', 'error')
-    return redirect(url_for('admin_dashboard'))
+    return redirect(url_for('admin_dashboard', tab="users"))
     
     
 @app.route("/create_user", methods=['POST'])
