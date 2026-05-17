@@ -73,3 +73,35 @@ input{
     font-weight: 100;
     cursor: pointer;
 }
+
+/* ================================================= */
+/* -----------------Break Points-------------------- */
+/* ================================================= */
+
+/* ================== Max 480 ===================== */
+
+@media (max-width: 480px) {
+        .logo_name{
+    font-size: 2rem;
+    }
+
+    .logo_name span{
+    font-size: 2rem;
+    }
+
+    .form-label{
+    font-size: .65rem;
+    }
+
+    .form_container{
+    width: 200px;
+    }
+
+    .login-btn{
+    font-size: .8rem;
+    height: 25px;
+    padding: none;
+    line-height: 10px;
+    }
+    
+}

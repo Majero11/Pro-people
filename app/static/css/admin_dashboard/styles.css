@@ -145,13 +145,13 @@ main{
 
 #usersView{
     display: none;
-    width: 95%vw;
+    width: 70vw;
     margin-left: 20px;
 }
 
 .admin_request_details{
     display:none;
-    width: 95%vw;
+    width: 70vw;
     margin-left: 20px;
 }
 
