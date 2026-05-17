@@ -210,7 +210,7 @@ class AdminOperations:
             if cursor is None:
                 return None
             
-            query = "SELECT CONCAT(u.first_name, ' ', u.last_name) AS name, u.position, d.department_name, u.email, u.contact FROM users u JOIN departments d ON u.department_id = d.department_id ORDER BY u.user_id DESC"
+            query = "SELECT CONCAT(u.first_name, ' ', u.last_name) AS name, u.position, d.department_name, u.email, u.contact FROM users u LEFT JOIN departments d ON u.department_id = d.department_id ORDER BY u.user_id DESC"
             cursor.execute(query)            
             return cursor.fetchall()
 
@@ -244,28 +244,50 @@ class AdminOperations:
             cursor.close()
             conn.close()
     
-        @staticmethod
-        def delete_user(user_id):
-            conn = None
-            cursor = None
+    @staticmethod
+    def delete_user(user_id):
+        conn = None
+        cursor = None
+        
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
             
-            try:
-                conn = get_db_connection()
-                cursor = conn.cursor()
-                
-                if cursor is None:
-                    return False
-                
-                query = 'DELETE FROM users WHERE user_id = %s'
-                cursor.execute(query, (user_id))
-                conn.commit()
-                return True
-
-            
-            except Exception as e:
-                print(f"Error deleting leave request: {e}")
+            if cursor is None:
                 return False
-            finally:
-                if cursor:
-                    cursor.close()
-                close_db_connection()
+            
+            query = 'DELETE FROM users WHERE user_id = %s'
+            cursor.execute(query, (user_id))
+            conn.commit()
+            return True
+
+        
+        except Exception as e:
+            print(f"Error deleting leave request: {e}")
+            return False
+        finally:
+            if cursor:
+                cursor.close()
+            close_db_connection()
+
+    @staticmethod
+    def create_user(first_name, last_name, email, password, department_id, is_admin, contact, position):
+        conn = None
+        cursor = None
+        
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            
+            query = 'INSERT INTO users (first_name, last_name, email, password, department_id, is_admin, contact, position) VALUES (%s, %s, %s, %s,%s,%s,%s,%s)'
+            cursor.execute(query, (first_name, last_name, email, password, department_id, is_admin, contact, position))
+            conn.commit()
+            return True
+        
+        except Exception as e:
+            print(f"Error creating user: {e}")
+            return False
+        finally:
+            if cursor:
+                cursor.close()
+            close_db_connection()

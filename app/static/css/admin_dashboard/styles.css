@@ -90,7 +90,7 @@ main{
 .buttons{
     margin-bottom: 20px;
     display: flex;
-    gap: 100px;
+    gap: 20px;
 }
 
 .btn{
@@ -145,7 +145,7 @@ main{
 
 #usersView{
     display: none;
-    width: 90%vw;
+    width: 95%vw;
     margin-left: 20px;
 }
 .users_table{
@@ -317,4 +317,25 @@ a{
 
 .approvalbtn{
     margin-right: 10px;
+}
+
+.Create-user-section{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #CCCCCC;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    background: radial-gradient(circle at top left , #42b37c 20%
+    , #037A68 100%);
+    width: 400px;
+}
+
+input::placeholder{
+    color: #fff;
 }

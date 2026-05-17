@@ -9,6 +9,8 @@ const tabs = document.querySelector('.tabs');
 const Users = document.querySelector('.users');
 const Request = document.querySelector('.requests');
 const AdminRequest = document.querySelector('.admin_requests');
+const CreateUserSection = document.querySelector('.Create-user-section');
+const btnCreateUser = document.querySelector('.btn_create_user');
 const reviewRequest = document.getElementById('requestView');
 const usersView = document.getElementById('usersView');
 
@@ -17,6 +19,7 @@ const usersView = document.getElementById('usersView');
 leaveRequestBtn.addEventListener('click', () => {
     leaveRequestSection.style.display = 'none';
     updateDetailsSection.style.display = 'flex';
+    CreateUserSection.style.display = 'none'
     
     leaveRequestSection.style.display = 'flex';
     updateDetailsSection.style.display = 'none';
@@ -25,6 +28,7 @@ leaveRequestBtn.addEventListener('click', () => {
 updateDetailsBtn.addEventListener('click', () => {
     updateDetailsSection.style.display = 'none';
     leaveRequestSection.style.display = 'flex';
+    CreateUserSection.style.display = 'none'
 
     updateDetailsSection.style.display = 'flex';
     leaveRequestSection.style.display = 'none';
@@ -60,3 +64,9 @@ AdminRequest.addEventListener('click', () => {
     Request.style.color = '#037A5D';
     Request.style.background = 'none';
 });
+
+btnCreateUser.addEventListener('click', ()=>{
+    CreateUserSection.style.display = 'flex'
+        updateDetailsSection.style.display = 'none';
+    leaveRequestSection.style.display = 'none';
+})

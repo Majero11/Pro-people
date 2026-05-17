@@ -164,6 +164,31 @@ def delete_user(user_id):
     else:
         flash('Failed to delete user.', 'error')
         return redirect(url_for('admin_dashboard'))
+    
+    
+@app.route("/create_user", methods=['POST'])
+def create_user_route():
+    """handles the creation of a user details
+    """
+    user_id = session['user_id']
+    
+    password = request.form.get('password')
+    email = request.form.get('email')
+    contact = request.form.get('contact')
+    first_name = request.form.get('first_name')
+    last_name = request.form.get('last_name')
+    department_id = request.form.get('department_id')
+    is_admin = request.form.get('is_admin')
+    position = request.form.get('position')
+
+    success = AdminOperations.create_user(first_name, last_name, email, password, department_id, is_admin, contact, position)
+    if success:
+        flash('User created successfully!', 'success')
+    else:
+        flash('Failed to create user.', 'error')
+
+    return redirect(url_for('admin_dashboard'))
+
 
 @app.route('/logout')
 def logout():

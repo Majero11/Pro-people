@@ -23,6 +23,7 @@
                 <div class="buttons">
                     <button class="btn btn_update_details">Update Details</button>
                     <button class="btn btn_request_leave">Request Leave</button>
+                    <button class="btn btn_create_user">Create User</button>
                 </div>
 
             </div>
@@ -34,7 +35,7 @@
                     <div class="tab-heading admin_requests">Admin Request</div>
                 </div>
 
-                <!-- REQUEST VIEW -->
+ <!-- REQUEST VIEW -->
                 <div id="requestView" class="activity-section hidden">
                     {%if leave_requests%}
                         <table>
@@ -83,7 +84,7 @@
                     {%endif%}   
                 </div>  
 
-                <!--USERS VIEW -->
+<!--USERS VIEW -->
                 <div id="usersView">
                     {%if users%}
                         <table class="users_table">
@@ -124,7 +125,42 @@
                 </div>
             </div>
 
+<!-- ADMIN REQUESTS DETAILS
 
+                    <div class="activity-section">
+                {%if leave_requests%}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="table-header">Start_Date</th>
+                                <th class="table-header">End_Date</th>
+                                <th class="table-header">Days Applied</th>
+                                <th class="table-header">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {%for leave in leave_requests%}
+                            <tr>
+                                <td class="table-contents">{{ leave.start_date }}</td>
+                                <td class="table-contents">{{ leave.end_date }}</td>
+                                <td class="table-contents">{{ leave.days_applied }}</td>
+                                <td class="table-contents">{{ leave.status }}</td>
+                                <td>
+                                    <form method="post" action="/delete_leave/{{ leave.request_id }}">
+                                        <button class="btn btn_delete" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                {%else%}
+                    <p>No leave applications found.</p>
+                {%endif%}   
+            </div>   -->
+
+<!--  LEAVE REQUESTS SECTION  -->
             <div class="leave-request-section">
                 <h2 class="leave-heading">Leave Requests</h2>
                 <form action="/submit_leave" method="post" class="leave-request-form">
@@ -149,6 +185,7 @@
                 </form>
             </div>
 
+<!-- USER DETAILS UPDATE SECTION  -->
             <div class="User-details-Update-section">
                 <h2 class="leave-heading">User Details Update</h2>
                 <form action="/update_user_details" method="post" class="update-user-form">
@@ -165,6 +202,42 @@
                     <input class="form-input" type="text" id="contact" name="contact"  value="{{ user.contact }}">
                     </div>
                     <button type="submit" class="btn update-btn">Update</button>
+                </form>
+            </div>
+
+<!-- CREATE USER SECTION  -->
+            <div class="Create-user-section">
+                <h2 class="leave-heading">User Details Update</h2>
+                <form action="/create_user" method="post" class="create-user-form">
+                    <div class="form-row">
+                    <label class="form-label" for="first_name">First Name:</label>
+                    <input class="form-input" type="text" id="first_name" name="first_name"  placeholder="Enter a name">
+                    </div>
+                    <div class="form-row">
+                    <label class="form-label" for="last_name">Last Name:</label>
+                    <input class="form-input" type="text" id="last_name" name="last_name"  placeholder="Enter last name">
+                    </div>
+                    <div class="form-row">
+                    <label class="form-label" for="email">Email:</label>
+                    <input class="form-input" type="email" id="email" name="email"  placeholder="Enter email">
+                    </div>
+                    <div class="form-row">
+                    <label class="form-label" for="password">Password:</label>
+                    <input class="form-input" type="password" id="password" name="password"  placeholder="Enter temporary password">
+                    </div>
+                    <div class="form-row">
+                    <label class="form-label" for="department_id">Department Id:</label>
+                    <input class="form-input" type="department_id" id="department_id" name="department_id"  placeholder="Enter department id">
+                    </div>
+                    <div class="form-row">
+                    <label class="form-label" for="is_admin">Is_admin:</label>
+                    <input class="form-input" type="is_admin" id="is_admin" name="is_admin"  placeholder="Enter TRUE OR FALSE">
+                    </div>
+                    <div class="form-row">
+                    <label class="form-label" for="contact">Phone:</label>
+                    <input class="form-input" type="text" id="contact" name="contact"  placeholder="Enter phone number">
+                    </div>
+                    <button type="submit" class="btn update-btn">Create</button>
                 </form>
             </div>
         </div>
