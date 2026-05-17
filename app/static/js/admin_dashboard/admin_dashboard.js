@@ -14,6 +14,7 @@ const btnCreateUser = document.querySelector('.btn_create_user');
 const adminRequestDetails = document.querySelector('.admin_request_details');
 const reviewRequest = document.getElementById('requestView');
 const usersView = document.getElementById('usersView');
+const cancelBtn = document.querySelector('.cancel-btn');
 
 
 
@@ -76,3 +77,10 @@ btnCreateUser.addEventListener('click', ()=>{
     updateDetailsSection.style.display = 'none';
     leaveRequestSection.style.display = 'none';
 })
+
+cancelBtn.addEventListener('click', () =>{
+    updateDetailsSection.style.display = 'none';
+    leaveRequestSection.style.display = 'none'
+    updateDetailsSection.style.display = 'none';
+})
+

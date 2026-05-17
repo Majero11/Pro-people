@@ -350,3 +350,14 @@ input::placeholder{
 .leave-heading{
     color: #037A5D;
 }
+
+.control-btns{
+    display: flex;
+    gap: 20px;
+
+}
+
+.cancel-btn{
+    height: 30px;
+    margin-top: 8px;
+}

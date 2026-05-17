@@ -180,7 +180,11 @@
                             <option value="maternity">Maternity Leave</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn apply-btn">Apply for Leave</button>
+
+                    <div class="control-btns">
+                        <button type="submit" class="btn apply-btn">Apply for Leave</button>
+                        <button type="submit" class="btn cancel-btn" formnovalidate>Cancel</button>
+                    </div>
                 </form>
             </div>
 
@@ -201,6 +205,7 @@
                     <input class="form-input" type="text" id="contact" name="contact"  value="{{ user.contact }}">
                     </div>
                     <button type="submit" class="btn update-btn">Update</button>
+                    <button type="submit" class="btn cancel-btn" formnovalidate>Cancel</button>
                 </form>
             </div>
 
@@ -250,6 +255,7 @@
                         <input class="form-input" type="text" id="contact" name="contact"  placeholder="Enter phone number" required>
                     </div>
                     <button type="submit" class="btn update-btn">Create</button>
+                    <button type="submit" class="btn cancel-btn" formnovalidate>Cancel</button>
                 </form>
             </div>
         </div>
