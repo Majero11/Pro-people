@@ -33,6 +33,8 @@
                     <div class="tab-heading requests">Request</div>
                     <div class="tab-heading admin_requests">Admin Request</div>
                 </div>
+
+                <!-- REQUEST VIEW -->
                 <div id="requestView" class="activity-section hidden">
                     {%if leave_requests%}
                         <table>
@@ -78,6 +80,42 @@
                         </table>
                     {%else%}
                         <p>No leave applications found.</p>
+                    {%endif%}   
+                </div>  
+
+                <!--USERS VIEW -->
+                <div id="usersView">
+                    {%if users%}
+                        <table class="users_table">
+                            <thead>
+                                <tr>
+                                    <th class="table-header">Name</th>
+                                    <th class="table-header">Position</th>
+                                    <th class="table-header">Department</th>
+                                    <th class="table-header">Email</th>
+                                    <th class="table-header">Conatact</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {%for user in users%}
+                                <tr>
+                                    <td class="table-contents">{{ user.name }}</td>
+                                    <td class="table-contents">{{ user.position }}</td>
+                                    <td class="table-contents">{{ user.department_name }}</td>
+                                    <td class="table-contents">{{ user.email }}</td>
+                                    <td class="table-contents">{{ user.contact }}</td>
+                                    <td>
+                                        <form method="post" action="/delete_user }}">
+                                            <button class="btn btn_delete" type="submit">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    {%else%}
+                        <p>No users found.</p>
                     {%endif%}   
                 </div>  
 

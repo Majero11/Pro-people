@@ -199,6 +199,31 @@ class AdminOperations:
             close_db_connection()
             
     @staticmethod
+    def get_all_users():
+        conn = None
+        cursor = None
+        
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor(row_factory=dict_row)
+            
+            if cursor is None:
+                return None
+            
+            query = "SELECT CONCAT(u.first_name, ' ', u.last_name) AS name, u.position, d.department_name, u.email, u.contact FROM users u JOIN departments d ON u.department_id = d.department_id ORDER BY u.user_id DESC"
+            cursor.execute(query)            
+            return cursor.fetchall()
+
+        
+        except Exception as e:
+            print(f"Error fetching users: {e}")
+            return []
+        finally:
+            if cursor:
+                cursor.close()
+            close_db_connection()
+            
+    @staticmethod
     def update_leave_request(request_id, status):
         conn = get_db_connection()
         cursor = conn.cursor(row_factory=dict_row)
@@ -218,3 +243,29 @@ class AdminOperations:
         finally:
             cursor.close()
             conn.close()
+    
+        @staticmethod
+        def delete_user(user_id):
+            conn = None
+            cursor = None
+            
+            try:
+                conn = get_db_connection()
+                cursor = conn.cursor()
+                
+                if cursor is None:
+                    return False
+                
+                query = 'DELETE FROM users WHERE user_id = %s'
+                cursor.execute(query, (user_id))
+                conn.commit()
+                return True
+
+            
+            except Exception as e:
+                print(f"Error deleting leave request: {e}")
+                return False
+            finally:
+                if cursor:
+                    cursor.close()
+                close_db_connection()

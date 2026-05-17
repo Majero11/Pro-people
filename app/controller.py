@@ -133,8 +133,9 @@ def admin_dashboard():
     user_id = session['user_id']
     user = EmployeeOperations.get_user_details(user_id)
     leave_requests = AdminOperations.get_all_user_requests()
+    users = AdminOperations.get_all_users()
 
-    return render_template('admin_dashboard.html', user=user, leave_requests=leave_requests)
+    return render_template('admin_dashboard.html', user=user, leave_requests=leave_requests, users=users)
 
 @app.route('/update_leave_status', methods=['POST'])
 def update_leave_status():
@@ -151,6 +152,18 @@ def update_leave_status():
         flash('Failed to update leave request.', 'error')    
         
     return redirect(url_for('admin_dashboard'))
+
+@app.route('/delete_user/<int:request_id>', methods=['POST'])
+def delete_user(user_id):
+    """handles the deletion of a user
+    """
+    success = AdminOperations.delete_user(user_id)
+    
+    if success:
+        flash('User deleted successfully!', 'success')
+    else:
+        flash('Failed to delete user.', 'error')
+        return redirect(url_for('admin_dashboard'))
 
 @app.route('/logout')
 def logout():

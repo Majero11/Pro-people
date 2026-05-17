@@ -9,7 +9,8 @@ const tabs = document.querySelector('.tabs');
 const Users = document.querySelector('.users');
 const Request = document.querySelector('.requests');
 const AdminRequest = document.querySelector('.admin_requests');
-const reviewRequest = document.querySelector('.activity-section');
+const reviewRequest = document.getElementById('requestView');
+const usersView = document.getElementById('usersView');
 
 
 
@@ -30,6 +31,8 @@ updateDetailsBtn.addEventListener('click', () => {
 });
 
 Users.addEventListener('click', () => {
+    reviewRequest.style.display = 'none';
+    usersView.style.display = 'flex';
     Users.style.background = '#037A5D';
     Users.style.color = '#fff';
     Request.style.color = '#037A5D';
@@ -39,7 +42,8 @@ Users.addEventListener('click', () => {
 });
 
 Request.addEventListener('click', () => {
-    reviewRequest.style.display = 'flex'
+    reviewRequest.style.display = 'flex';
+    usersView.style.display = 'none';
     Request.style.background = '#037A5D';
     Request.style.color = '#fff';
     Users.style.background = 'none';

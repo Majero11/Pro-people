@@ -134,13 +134,22 @@ main{
 
 }
 
-.activity-section{
+#requestView{
    display: none;
     flex-direction: column;
     width: 60vw;
     margin-left: 20px;
     border-top: solid 1px #037A5D;
     height: 600px;
+}
+
+#usersView{
+    display: none;
+    width: 90%vw;
+    margin-left: 20px;
+}
+.users_table{
+    width: 100%;
 }
 
 hr{
