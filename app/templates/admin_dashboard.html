@@ -210,32 +210,38 @@
                 <h2 class="leave-heading">User Details Update</h2>
                 <form action="/create_user" method="post" class="create-user-form">
                     <div class="form-row">
-                    <label class="form-label" for="first_name">First Name:</label>
-                    <input class="form-input" type="text" id="first_name" name="first_name"  placeholder="Enter a name">
+                        <label class="form-label" for="first_name">First Name:</label>
+                        <input class="form-input" type="text" id="first_name" name="first_name"  placeholder="Enter a name">
                     </div>
                     <div class="form-row">
-                    <label class="form-label" for="last_name">Last Name:</label>
-                    <input class="form-input" type="text" id="last_name" name="last_name"  placeholder="Enter last name">
+                        <label class="form-label" for="last_name">Last Name:</label>
+                        <input class="form-input" type="text" id="last_name" name="last_name"  placeholder="Enter last name">
                     </div>
                     <div class="form-row">
-                    <label class="form-label" for="email">Email:</label>
-                    <input class="form-input" type="email" id="email" name="email"  placeholder="Enter email">
+                        <label class="form-label" for="email">Email:</label>
+                        <input class="form-input" type="email" id="email" name="email"  placeholder="Enter email">
                     </div>
                     <div class="form-row">
-                    <label class="form-label" for="password">Password:</label>
-                    <input class="form-input" type="password" id="password" name="password"  placeholder="Enter temporary password">
+                        <label class="form-label" for="password">Password:</label>
+                        <input class="form-input" type="password" id="password" name="password"  placeholder="Enter temporary password">
                     </div>
                     <div class="form-row">
-                    <label class="form-label" for="department_id">Department Id:</label>
-                    <input class="form-input" type="department_id" id="department_id" name="department_id"  placeholder="Enter department id">
+                        <label class="form-label" for="department_id">Department Id:</label>
+                        <select class="form-input" type="department_id" id="department_id" name="department_id"  required>
+                                <option value="" disable selected>Select department</option>
+                                <option value="200">Sales</option>
+                                <option value="340">Production</option>
+                                <option value="100">HR</option>
+                                <option value="250">IT</option>
+                        </select>   
                     </div>
                     <div class="form-row">
-                    <label class="form-label" for="is_admin">Is_admin:</label>
-                    <input class="form-input" type="is_admin" id="is_admin" name="is_admin"  placeholder="Enter TRUE OR FALSE">
+                        <label class="form-label" for="is_admin">Is_admin:</label>
+                        <input class="form-input" type="is_admin" id="is_admin" name="is_admin"  placeholder="Enter TRUE OR FALSE">
                     </div>
                     <div class="form-row">
-                    <label class="form-label" for="contact">Phone:</label>
-                    <input class="form-input" type="text" id="contact" name="contact"  placeholder="Enter phone number">
+                        <label class="form-label" for="contact">Phone:</label>
+                        <input class="form-input" type="text" id="contact" name="contact"  placeholder="Enter phone number">
                     </div>
                     <button type="submit" class="btn update-btn">Create</button>
                 </form>
