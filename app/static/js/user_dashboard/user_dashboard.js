@@ -4,6 +4,7 @@ const leaveApplyBtn = document.querySelector('.apply-btn');
 const leaveRequestBtn = document.querySelector('.btn_request_leave');
 const updateDetailsSection = document.querySelector('.User-details-Update-section');
 const updateBtn = document.querySelector('.update-btn');
+const cancelBtn = document.querySelector('.cancel-btn');
 const updateDetailsBtn = document.querySelector('.btn_update_details');
 
 leaveRequestBtn.addEventListener('click', () => {
@@ -22,3 +23,6 @@ updateDetailsBtn.addEventListener('click', () => {
     leaveRequestSection.style.display = 'none';
 });
 
+cancelBtn.addEventListener('click', () =>{
+    updateDetailsSection.style.display = 'none';
+})

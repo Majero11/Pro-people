@@ -254,3 +254,15 @@ a{
     color: #037A5D;
     text-decoration: none;
 }
+
+
+.control-btns{
+    display: flex;
+    gap: 20px;
+
+}
+
+.cancel-btn{
+    height: 30px;
+    margin-top: 8px;
+}
