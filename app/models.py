@@ -3,7 +3,6 @@ from psycopg.rows import dict_row
 
 
 class DatabaseOperations:
-    
     @staticmethod
     def get_user(email, password):
         try:
@@ -16,7 +15,7 @@ class DatabaseOperations:
             if cursor is None:
                 return None
             
-            #write the query to fetch the user with the given email and password
+            # write the query to fetch the user with the given email and password
             query = 'SELECT user_id, first_name, last_name, is_admin from users  WHERE email = %s AND password = %s'
             
             # execute the query with the provided email and password

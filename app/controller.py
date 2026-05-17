@@ -1,4 +1,4 @@
-# imports methods and objects from flask 
+# imports methods and objects from flask
 from flask import render_template, request, redirect, url_for, flash, session
 
 from app.models import DatabaseOperations
@@ -24,7 +24,7 @@ def index():
         user = DatabaseOperations.get_user(email, password)
         
         if user is not None:
-            #create a session 
+            # create a session 
             session['user_id'] = user[0]
             session['first_name'] = user[1]
             session['last_name'] = user[2]
@@ -50,16 +50,14 @@ def user_dashboard():
     leave_requests =    LeaveOperations.get_leave_requests_by_user_id(user_id)
     user = EmployeeOperations.get_user_details(user_id)
 
-    return render_template('user_dashboard.html', leave_requests=leave_requests, user=user)
-
+    return render_template('user_dashboard.html',
+                           leave_requests=leave_requests,
+                           user=user
+                           )
 
 @app.route('/submit_leave', methods=['POST'])
 def submit_leave():
     """handles the submission of a leave request form
-    it gets the user id from the session and the form data for start date, end date and leave type
-    it then calls the create_leave_request method from the RequestOperations class to create the leave request in the database
-    if the request is created successfully it flashes a success message and redirects the user back to the user dashboard
-    if the request creation fails it flashes an error message and redirects the user back to the user dashboard
     """
     user_id = session['user_id']
     
@@ -84,9 +82,6 @@ def submit_leave():
 @app.route('/delete_leave/<int:request_id>', methods=['POST'])
 def delete_leave(request_id):
     """handles the deletion of a leave request
-    it gets the request id from the url parameter and calls the delete_leave_request method from the RequestOperations class to delete the leave request from the database
-    if the request is deleted successfully it flashes a success message and redirects the user back to the user dashboard
-    if the request deletion fails it flashes an error message and redirects the user back to the user dashboard
     """
     success = RequestOperations.delete_leave_request(request_id, session['user_id'])
     
@@ -103,10 +98,6 @@ def delete_leave(request_id):
 @app.route("/update_user_details", methods=['POST'])
 def update_user_details():
     """handles the updating of user details
-    it gets the user id from the session and the form data for position, department, email and contact
-    it then calls the update_user_details method from the RequestOperations class to update the user details in the database
-    if the update is successful it flashes a success message and redirects the user back to the user dashboard
-    if the update fails it flashes an error message and redirects the user back to the user dashboard
     """
     user_id = session['user_id']
     
