@@ -1,9 +1,7 @@
-
+# import os
 # from dotenv import load_dotenv, find_dotenv
 
-
-
-
+# load_dotenv(find_dotenv())
 
 # class Config:
 #     # creat variable in the class that will hold the values from the .env file 
@@ -13,6 +11,8 @@
 #     DB_PASSWORD = os.getenv('DB_PASSWORD')
 #     SECRET_KEY = os.getenv('SECRET_KEY')
 #     DB_NAME = os.getenv('DB_NAME')
+
+
 import os 
 from dotenv import load_dotenv
 

@@ -1,11 +1,9 @@
 const leaveRequestSection = document.querySelector('.leave-request-section');
 const leaveRequestForm = document.querySelector('.leave-request-form');
-const leaveApplyBtn = document.querySelector('.apply-btn');
 const leaveRequestBtn = document.querySelector('.btn_request_leave');
 const updateDetailsSection = document.querySelector('.User-details-Update-section');
 const updateBtn = document.querySelector('.update-btn');
 const updateDetailsBtn = document.querySelector('.btn_update_details');
-const tabs = document.querySelectorAll('.tabs');
 const Users = document.querySelector('.users');
 const Request = document.querySelector('.requests');
 const AdminRequest = document.querySelector('.admin_requests');
@@ -21,7 +19,7 @@ const cancelBtn = document.querySelector('.cancel-btn');
 leaveRequestBtn.addEventListener('click', () => {
     leaveRequestSection.style.display = 'none';
     updateDetailsSection.style.display = 'flex';
-    CreateUserSection.style.display = 'none'
+    CreateUserSection.style.display = 'none';
     
     leaveRequestSection.style.display = 'flex';
     updateDetailsSection.style.display = 'none';
@@ -30,7 +28,7 @@ leaveRequestBtn.addEventListener('click', () => {
 updateDetailsBtn.addEventListener('click', () => {
     updateDetailsSection.style.display = 'none';
     leaveRequestSection.style.display = 'flex';
-    CreateUserSection.style.display = 'none'
+    CreateUserSection.style.display = 'none';
 
     updateDetailsSection.style.display = 'flex';
     leaveRequestSection.style.display = 'none';
@@ -38,7 +36,7 @@ updateDetailsBtn.addEventListener('click', () => {
 
 Users.addEventListener('click', () => {
     reviewRequest.style.display = 'none';
-    adminRequestDetails.style.display = 'none'
+    adminRequestDetails.style.display = 'none';
     usersView.style.display = 'flex';
     Users.style.background = '#037A5D';
     Users.style.color = '#fff';
@@ -51,7 +49,7 @@ Users.addEventListener('click', () => {
 
 Request.addEventListener('click', () => {
     reviewRequest.style.display = 'flex';
-    adminRequestDetails.style.display = 'none'
+    adminRequestDetails.style.display = 'none';
     usersView.style.display = 'none';
     Request.style.background = '#037A5D';
     Request.style.color = '#fff';
@@ -62,7 +60,7 @@ Request.addEventListener('click', () => {
 });
 
 AdminRequest.addEventListener('click', () => {
-    adminRequestDetails.style.display = 'flex'
+    adminRequestDetails.style.display = 'flex';
     usersView.style.display = 'none';
     reviewRequest.style.display = 'none';
     AdminRequest.style.background = '#037A5D';
@@ -74,13 +72,13 @@ AdminRequest.addEventListener('click', () => {
 });
 
 btnCreateUser.addEventListener('click', ()=>{
-    CreateUserSection.style.display = 'flex'
+    CreateUserSection.style.display = 'flex';
     updateDetailsSection.style.display = 'none';
     leaveRequestSection.style.display = 'none';
-})
+});
 
 cancelBtn.addEventListener('click', () =>{
     updateDetailsSection.style.display = 'none';
-    leaveRequestSection.style.display = 'none'
+    leaveRequestSection.style.display = 'none';
     updateDetailsSection.style.display = 'none';
-})
+});
