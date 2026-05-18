@@ -46,7 +46,10 @@ def user_dashboard():
     
     """render the user_dashboard.html
     """
-    user_id = session['user_id']
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('index'))
+    # user_id = session['user_id']
     leave_requests =    LeaveOperations.get_leave_requests_by_user_id(user_id)
     user = EmployeeOperations.get_user_details(user_id)
 
@@ -122,7 +125,10 @@ def update_user_details():
 def admin_dashboard():
     """render the user_dashboard.html
     """
-    user_id = session['user_id']
+    user_id = session.get('user_id')
+    if not user_id:
+        return redirect(url_for('index'))
+    # user_id = session['user_id']
     user = EmployeeOperations.get_user_details(user_id)
     leave_requests = AdminOperations.get_all_user_requests()
     users = AdminOperations.get_all_users()
