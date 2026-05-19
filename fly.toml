@@ -1,10 +1,12 @@
-# fly.toml app configuration file generated for pro-people on 2026-05-18T23:02:41+01:00
+# fly.toml app configuration file generated for pro-people-lq7ysa on 2026-05-19T09:10:15Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'pro-people'
-primary_region = 'ams'
+app = 'pro-people-lq7ysa'
+primary_region = 'lhr'
+
+[build]
 
 [http_service]
   internal_port = 8080
