@@ -1,5 +1,8 @@
 # import the psycopg package 
 import psycopg
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 # import the class config that contains the database connection parameters 
 from config.settings import Config 
