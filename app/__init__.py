@@ -2,6 +2,9 @@
 from flask import Flask 
 from config.settings import Config
 from config.database import close_db_connection
+from flask_migrate import Migrate
+from config.database import db
+
 
 # initialize an instance of the Flask class 
 # __name__ helps flask locate the resources of the application 
@@ -12,6 +15,9 @@ app.config['SECRET_KEY'] = Config.SECRET_KEY
 
 # load configurations from the config file 
 app.config.from_object(Config)
+
+# Initialize migrate AFTER app + db exist
+migrate = Migrate(app, db)
 
 # close the database automatically after each request 
 @app.teardown_appcontext
