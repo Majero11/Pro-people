@@ -1,10 +1,10 @@
 from config.database import get_db_connection, close_db_connection
 from psycopg.rows import dict_row
-from datetime import datetime
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import validates
+# from datetime import datetime
+# from flask_sqlalchemy import SQLAlchemy
+# from sqlalchemy.orm import validates
 
-db = SQLAlchemy()
+# db = SQLAlchemy()
 
 class DatabaseOperations:
     @staticmethod
@@ -319,40 +319,40 @@ class AdminOperations:
             
 
 
-class Departments(db.Model):
-    __tablename__ = "departments"
-    department_id = db.Column(db.Integer, primary_key=True)
-    department_name = db.Column(db.String(50), nullable=False)
+# class Departments(db.Model):
+#     __tablename__ = "departments"
+#     department_id = db.Column(db.Integer, primary_key=True)
+#     department_name = db.Column(db.String(50), nullable=False)
 
-class Users(db.Model):
-    __tablename__ = "users"
-    user_id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(20), nullable=False)
-    last_name = db.Column(db.String(25), nullable=False)
-    email = db.Column(db.String(25), nullable=False, unique=True)
-    password = db.Column(db.String(255), nullable=False)
-    department_id = db.Column(
-        db.Integer,
-        db.ForeignKey("departments.department_id")
-    )
-    created_at = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
-    is_admin = db.Column(db.Boolean, nullable=False, default=False)
-    contact = db.Column(db.String(13))
-    position = db.Column(db.String(30))
+# class Users(db.Model):
+#     __tablename__ = "users"
+#     user_id = db.Column(db.Integer, primary_key=True)
+#     first_name = db.Column(db.String(20), nullable=False)
+#     last_name = db.Column(db.String(25), nullable=False)
+#     email = db.Column(db.String(25), nullable=False, unique=True)
+#     password = db.Column(db.String(255), nullable=False)
+#     department_id = db.Column(
+#         db.Integer,
+#         db.ForeignKey("departments.department_id")
+#     )
+#     created_at = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
+#     is_admin = db.Column(db.Boolean, nullable=False, default=False)
+#     contact = db.Column(db.String(13))
+#     position = db.Column(db.String(30))
 
-class LeaveRequest(db.Model):
-    __tablename__ = "leave_requests"
-    request_id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable=False)
-    leave_type = db.Column(db.String(50), nullable=False)
-    start_date = db.Column(db.Date, nullable=False)
-    end_date = db.Column(db.Date, nullable=False)
-    status = db.Column(db.String(20), nullable=False, default="pending")
-    requested_at = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
-    approved_by = db.Column(db.Integer, nullable=True)
-    approved_at = db.Column(db.DateTime(timezone=True), nullable=True)
-    days_applied = db.Column(db.Integer, nullable=False)
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        if self.start_date and self.end_date:
-            self.days_applied = (self.end_date - self.start_date).days + 1
+# class LeaveRequest(db.Model):
+#     __tablename__ = "leave_requests"
+#     request_id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable=False)
+#     leave_type = db.Column(db.String(50), nullable=False)
+#     start_date = db.Column(db.Date, nullable=False)
+#     end_date = db.Column(db.Date, nullable=False)
+#     status = db.Column(db.String(20), nullable=False, default="pending")
+#     requested_at = db.Column(db.DateTime(timezone=True), default=datetime.utcnow)
+#     approved_by = db.Column(db.Integer, nullable=True)
+#     approved_at = db.Column(db.DateTime(timezone=True), nullable=True)
+#     days_applied = db.Column(db.Integer, nullable=False)
+#     def __init__(self, **kwargs):
+#         super().__init__(**kwargs)
+#         if self.start_date and self.end_date:
+#             self.days_applied = (self.end_date - self.start_date).days + 1
