@@ -84,7 +84,7 @@ def submit_leave():
 
 @app.route('/delete_leave/<int:request_id>', methods=['POST'])
 def delete_leave(request_id):
-    """handles the deletion of a leave request
+    """handles the deletion of a leave request t
     """
     success = RequestOperations.delete_leave_request(request_id, session['user_id'])
     
