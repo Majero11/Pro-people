@@ -12,7 +12,7 @@ class Database:
     use the singleton  pattern manage the PostgreSQL connection 
     
     Attributes:
-        _instance: songleton of the class 
+        _instance: songleton of the class.
     """
     
     
