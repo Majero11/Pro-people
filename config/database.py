@@ -22,13 +22,6 @@ class Database:
         self.conn = None
         try:
             self.conn = psycopg.connect(Config.SQLALCHEMY_DATABASE_URI)
-            # self.conn = psycopg.connect(
-            #     host=Config.DB_HOST,
-            #     port=Config.DB_PORT,
-            #     user=Config.DB_USER,
-            #     password=Config.DB_PASSWORD,
-            #     dbname=Config.DB_NAME
-            # )
             
         except psycopg.OperationalError as e:
             print(f"Error connection to the database: {e}")
