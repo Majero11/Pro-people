@@ -13,6 +13,9 @@ const adminRequestDetails = document.querySelector('.admin_request_details');
 const reviewRequest = document.getElementById('requestView');
 const usersView = document.getElementById('usersView');
 const cancelBtn = document.querySelector('.cancel-btn');
+const taskSection = document.querySelector('.Create-task-section');
+const taskBtn = document.querySelector('.btn_create_task');
+const taskView = document.getElementById('tasksView');
 
 
 
@@ -59,6 +62,19 @@ Request.addEventListener('click', () => {
     AdminRequest.style.background = 'none';
 });
 
+taskBtn.addEventListener('click', () => {
+    taskSection.style.display = 'flex';
+    reviewRequest.style.display = 'none';
+    adminRequestDetails.style.display = 'none';
+    usersView.style.display = 'none';
+    Request.style.background = '#037A5D';
+    Request.style.color = '#fff';
+    Users.style.background = 'none';
+    Users.style.color = '#037A5D';
+    AdminRequest.style.color = '#037A5D';
+    AdminRequest.style.background = 'none';
+});
+
 AdminRequest.addEventListener('click', () => {
     adminRequestDetails.style.display = 'flex';
     usersView.style.display = 'none';
@@ -82,3 +98,4 @@ cancelBtn.addEventListener('click', () =>{
     leaveRequestSection.style.display = 'none';
     updateDetailsSection.style.display = 'none';
 });
+
