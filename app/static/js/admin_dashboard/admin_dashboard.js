@@ -13,6 +13,10 @@ const adminRequestDetails = document.querySelector('.admin_request_details');
 const reviewRequest = document.getElementById('requestView');
 const usersView = document.getElementById('usersView');
 const cancelBtn = document.querySelector('.cancel-btn');
+const taskSection = document.querySelector('.Create-task-section');
+const taskBtn = document.querySelector('.btn_create_task');
+const Task = document.querySelector('.tasks');
+const taskview = document.getElementById('tasksView');
 
 
 
@@ -35,7 +39,6 @@ updateDetailsBtn.addEventListener('click', () => {
 
 Users.addEventListener('click', () => {
     adminRequestDetails.style.display = 'none';
-    taskview.style.display = 'none';
     usersView.style.display = 'flex';
     Users.style.background = '#037A5D';
     Users.style.color = '#fff';
@@ -44,8 +47,6 @@ Users.addEventListener('click', () => {
     Request.style.color = '#037A5D';
     AdminRequest.style.color = '#037A5D';
     AdminRequest.style.background = 'none';
-    Task.style.background = 'none';
-    Task.style.color = '#037A5D';
 });
 
 
@@ -59,9 +60,6 @@ Request.addEventListener('click', () => {
     adminRequestDetails.style.display = 'none';
     AdminRequest.style.background = 'none';
     AdminRequest.style.color = '#037A5D';
-    taskview.style.display = 'none';
-    Task.style.background = 'none';
-    Task.style.color = '#037A5D';
 });
 
 AdminRequest.addEventListener('click', () => {
@@ -74,9 +72,6 @@ AdminRequest.addEventListener('click', () => {
     Users.style.color = '#037A5D';
     Request.style.color = '#037A5D';
     Request.style.background = 'none';
-    taskview.style.display = 'none';
-    Task.style.background = 'none';
-    Task.style.color = '#037A5D';
 });
 
 btnCreateUser.addEventListener('click', ()=>{
