@@ -16,6 +16,7 @@ const cancelBtn = document.querySelector('.cancel-btn');
 const taskSection = document.querySelector('.Create-task-section');
 const taskBtn = document.querySelector('.btn_create_task');
 const Task = document.querySelector('.tasks');
+const taskview = document.getElementById('tasksView');
 
 
 
@@ -23,7 +24,6 @@ leaveRequestBtn.addEventListener('click', () => {
     leaveRequestSection.style.display = 'none';
     updateDetailsSection.style.display = 'flex';
     CreateUserSection.style.display = 'none';
-    
     leaveRequestSection.style.display = 'flex';
     updateDetailsSection.style.display = 'none';
 });
@@ -40,6 +40,7 @@ updateDetailsBtn.addEventListener('click', () => {
 Users.addEventListener('click', () => {
     reviewRequest.style.display = 'none';
     adminRequestDetails.style.display = 'none';
+    taskview.style.display = 'none';
     usersView.style.display = 'flex';
     Users.style.background = '#037A5D';
     Users.style.color = '#fff';
@@ -47,6 +48,8 @@ Users.addEventListener('click', () => {
     Request.style.background = 'none';
     AdminRequest.style.color = '#037A5D';
     AdminRequest.style.background = 'none';
+    Task.style.background = 'none';
+    Task.style.background = '#037A5D';
 });
 
 
@@ -54,18 +57,22 @@ Request.addEventListener('click', () => {
     reviewRequest.style.display = 'flex';
     adminRequestDetails.style.display = 'none';
     usersView.style.display = 'none';
+    taskview.style.display = 'none';
     Request.style.background = '#037A5D';
     Request.style.color = '#fff';
     Users.style.background = 'none';
     Users.style.color = '#037A5D';
     AdminRequest.style.color = '#037A5D';
     AdminRequest.style.background = 'none';
+    Task.style.background = 'none';
+    Task.style.background = '#037A5D';
 });
 
 Task.addEventListener('click', () => {
     reviewRequest.style.display = 'flex';
     adminRequestDetails.style.display = 'none';
     usersView.style.display = 'none';
+    taskview.style.display = 'flex';
     Task.style.background = '#037A5D';
     Task.style.color = '#fff';
     Users.style.background = 'none';
@@ -97,6 +104,8 @@ AdminRequest.addEventListener('click', () => {
     Users.style.color = '#037A5D';
     Request.style.color = '#037A5D';
     Request.style.background = 'none';
+    Task.style.background = 'none';
+    Task.style.background = '#037A5D';
 });
 
 btnCreateUser.addEventListener('click', ()=>{
