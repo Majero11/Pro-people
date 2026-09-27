@@ -15,7 +15,7 @@ const usersView = document.getElementById('usersView');
 const cancelBtn = document.querySelector('.cancel-btn');
 const taskSection = document.querySelector('.Create-task-section');
 const taskBtn = document.querySelector('.btn_create_task');
-const taskView = document.getElementById('tasksView');
+const Task = document.querySelector('.tasks');
 
 
 
@@ -51,6 +51,18 @@ Users.addEventListener('click', () => {
 
 
 Request.addEventListener('click', () => {
+    reviewRequest.style.display = 'flex';
+    adminRequestDetails.style.display = 'none';
+    usersView.style.display = 'none';
+    Request.style.background = '#037A5D';
+    Request.style.color = '#fff';
+    Users.style.background = 'none';
+    Users.style.color = '#037A5D';
+    AdminRequest.style.color = '#037A5D';
+    AdminRequest.style.background = 'none';
+});
+
+Task.addEventListener('click', () => {
     reviewRequest.style.display = 'flex';
     adminRequestDetails.style.display = 'none';
     usersView.style.display = 'none';
