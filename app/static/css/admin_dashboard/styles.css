@@ -380,6 +380,10 @@ a{
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
 
+#task_name{
+    text-align: center;
+}
+
 input::placeholder{
     color: #fff;
 }
