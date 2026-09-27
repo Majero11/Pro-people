@@ -69,7 +69,7 @@ Request.addEventListener('click', () => {
 });
 
 Task.addEventListener('click', () => {
-    reviewRequest.style.display = 'flex';
+    reviewRequest.style.display = 'none';
     adminRequestDetails.style.display = 'none';
     usersView.style.display = 'none';
     taskview.style.display = 'flex';
