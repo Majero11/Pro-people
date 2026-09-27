@@ -32,6 +32,7 @@
                 <div class="tabs">
                     <div class="tab-heading users">Users</div>
                     <div class="tab-heading requests">Request</div>
+                    <div class="tab-heading tasks">Tasks</div>
                     <div class="tab-heading admin_requests">Admin Request</div>
                 </div>
 
@@ -77,6 +78,60 @@
                                     </td>
                                     <td>
                                         <form method="post" action="/delete_leave/{{ leave.request_id }}">
+                                            <button class="btn btn_delete" type="submit">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {%endfor%}
+                            </tbody>
+                        </table>
+                    {%else%}
+                        <p>No leave applications found.</p>
+                    {%endif%}   
+                </div>  
+
+ <!-- TASKS VIEW -->
+                <div id="tasksView" class="activity-section hidden">
+                    {%if leave_requests%}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="table-header">Request_id</th>
+                                    <th class="table-header">First Name</th>
+                                    <th class="table-header">Last Name</th>
+                                    <th class="table-header">Leave Type</th>
+                                    <th class="table-header">Start_Date</th>
+                                    <th class="table-header">End_Date</th>
+                                    <th class="table-header">Days Applied</th>
+                                    <th class="table-header">Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                {%for task in tasks%}
+                                <tr>
+                                    <td class="table-contents">{{ task.request_id }}</td>
+                                    <td class="table-contents">{{ task.first_name }}</td>
+                                    <td class="table-contents">{{ task.last_name }}</td>
+                                    <td class="table-contents">{{ task.leave_type }}</td>
+                                    <td class="table-contents">{{ task.start_date }}</td>
+                                    <td class="table-contents">{{ task.end_date }}</td>
+                                    <td class="table-contents">{{ task.days_applied }}</td>
+                                    <td class="table-contents">{{ task.status }}</td>
+                                    <td>
+                                        <form method="post" action="/update_task_status">
+                                            <input type="hidden" name="request_id" value="{{task.request_id}}">
+                                            <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>                             
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="/update_task_status">
+                                            <input type="hidden" name="request_id" value="{{task.request_id}}">
+                                            <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>                                   
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form method="post" action="/delete_task/{{ task.request_id }}">
                                             <button class="btn btn_delete" type="submit">Delete</button>
                                         </form>
                                     </td>
@@ -266,4 +321,31 @@
         </div>
     </main>  
     <script src="{{ url_for('static', filename='js/admin_dashboard/admin_dashboard.js') }}"></script>
+
+    <!-- CREATE TASK SECTION  -->
+        <div class="create-task-section">
+            <h2 class="leave-heading">Create Task</h2>
+            <form action="/create_task" method="post" class="create-task-form">
+                <div class="form-row">
+                    <label class="form-label" for="task_name">Task Name:</label>
+                    <input class="form-input" type="text" id="task_name" name="task_name"  placeholder="Enter task name" required>
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="task_description">Task Description:</label>
+                    <textarea class="form-input" id="task_description" name="task_description" placeholder="Enter task description" required></textarea>
+                </div>
+                <div class="form-row">
+                    <label class="form-label" for="assigned_to">Assign To:</label>
+                    <select class="form-input" id="assigned_to" name="assigned_to" required>
+                        <option value="" disabled selected>Select user</option>
+                        {% for user in users %}
+                            <option value="{{ user.user_id }}">{{ user.name }}</option>
+                        {% endfor %}
+                    </select>   
+                </div>
+                <button type="submit" class="btn update-btn">Create Task</button>
+                <button type="button" class="btn cancel-btn" onclick="window.location.href='/admin_dashboard'">Cancel</button>
+            </form>
+
+        </div>
 {% endblock %}
