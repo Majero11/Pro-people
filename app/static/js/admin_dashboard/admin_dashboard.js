@@ -49,7 +49,7 @@ Users.addEventListener('click', () => {
     AdminRequest.style.color = '#037A5D';
     AdminRequest.style.background = 'none';
     Task.style.background = 'none';
-    Task.style.background = '#037A5D';
+    Task.style.color = '#037A5D';
 });
 
 
@@ -65,7 +65,7 @@ Request.addEventListener('click', () => {
     AdminRequest.style.color = '#037A5D';
     AdminRequest.style.background = 'none';
     Task.style.background = 'none';
-    Task.style.background = '#037A5D';
+    Task.style.color = '#037A5D';
 });
 
 Task.addEventListener('click', () => {
@@ -105,7 +105,7 @@ AdminRequest.addEventListener('click', () => {
     Request.style.color = '#037A5D';
     Request.style.background = 'none';
     Task.style.background = 'none';
-    Task.style.background = '#037A5D';
+    Task.style.color = '#037A5D';
 });
 
 btnCreateUser.addEventListener('click', ()=>{
