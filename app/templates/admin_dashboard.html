@@ -89,55 +89,7 @@
                     {%else%}
                         <p>No leave applications found.</p>
                     {%endif%}   
-                </div>  
-
- <!-- TASKS VIEW -->
-                <div id="tasksView" class="activity-section hidden">
-                    {%if leave_requests%}
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="table-header">Task_id</th>
-                                    <th class="table-header">Task Description</th>
-                                    <th class="table-header">Assigned to</th>
-                                    <th class="table-header">Due Date</th>
-                                    <th class="table-header">Status</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {%for task in tasks%}
-                                <tr>
-                                    <td class="table-contents">{{ task.task_id }}</td>
-                                    <td class="table-contents">{{ task.title }}</td>
-                                    <td class="table-contents">{{ task.assigned_to }}</td>
-                                    <td class="table-contents">{{ task.due_date }}</td>
-                                    <td class="table-contents">{{ task.status }}</td>
-                                    <td>
-                                        <form method="post" action="/update_task_status">
-                                            <input type="hidden" name="request_id" value="{{task.request_id}}">
-                                            <button class="btn btn_authorise" type="submit" value="approved" name="status">Approve</button>                             
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form method="post" action="/update_task_status">
-                                            <input type="hidden" name="request_id" value="{{task.request_id}}">
-                                            <button class="btn btn_authorise" type="submit" value="declined" name="status">Decline</button>                                   
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form method="post" action="/delete_task/{{ task.request_id }}">
-                                            <button class="btn btn_delete" type="submit">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                {%endfor%}
-                            </tbody>
-                        </table>
-                    {%else%}
-                        <p>No leave applications found.</p>
-                    {%endif%}   
-                </div>  
+                </div>   
 
 <!--USERS VIEW -->
                 <div id="usersView">

@@ -190,23 +190,6 @@ def create_user_route():
     return redirect(url_for('admin_dashboard'))
 
 
-@app.route('/create_task', methods=['POST'])
-def create_task():
-    """handles the creation of a task
-    """
-    task_name = request.form.get('task_name')
-    task_description = request.form.get('task_description')
-    assigned_to = request.form.get('assigned_to')
-
-    success = AdminOperations.create_task(task_name, task_description, assigned_to)
-    if success:
-        flash('Task created successfully!', 'success')
-    else:
-        flash('Failed to create task.', 'error')
-
-    return redirect(url_for('admin_dashboard'))
-
-
 @app.route('/logout')
 def logout():
     """render the index.html

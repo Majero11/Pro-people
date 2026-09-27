@@ -245,31 +245,6 @@ class AdminOperations:
             if cursor:
                 cursor.close()
             close_db_connection()
-
-    @staticmethod
-    def get_all_tasks():
-        conn = None
-        cursor = None
-        
-        try:
-            conn = get_db_connection()
-            cursor = conn.cursor(row_factory=dict_row)
-            
-            if cursor is None:
-                return None
-            
-            query = "SELECT t.task_id, t.title, t.description, CONCAT(u.first_name, ' ', u.last_name) AS assigned_to, t.status FROM tasks t LEFT JOIN users u ON t.assigned_to = u.user_id ORDER BY t.task_id DESC"
-            cursor.execute(query)            
-            return cursor.fetchall()
-
-        
-        except Exception as e:
-            print(f"Error fetching tasks: {e}")
-            return []
-        finally:
-            if cursor:
-                cursor.close()
-            close_db_connection()
             
     @staticmethod
     def update_leave_request(request_id, status):
