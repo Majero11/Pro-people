@@ -38,14 +38,14 @@ updateDetailsBtn.addEventListener('click', () => {
 });
 
 Users.addEventListener('click', () => {
-    reviewRequest.style.display = 'none';
     adminRequestDetails.style.display = 'none';
     taskview.style.display = 'none';
     usersView.style.display = 'flex';
     Users.style.background = '#037A5D';
     Users.style.color = '#fff';
-    Request.style.color = '#037A5D';
+    reviewRequest.style.display = 'none';
     Request.style.background = 'none';
+    Request.style.color = '#037A5D';
     AdminRequest.style.color = '#037A5D';
     AdminRequest.style.background = 'none';
     Task.style.background = 'none';
@@ -69,18 +69,18 @@ Request.addEventListener('click', () => {
 });
 
 Task.addEventListener('click', () => {
-    reviewRequest.style.display = 'none';
+    taskview.style.display = 'flex';
     Task.style.color = '#fff';
     Task.style.background = '#037A5D';
-    taskview.style.display = 'flex';
     usersView.style.display = 'none';
     Users.style.background = 'none';
     Users.style.color = '#037A5D';
     adminRequestDetails.style.display = 'none';
     AdminRequest.style.background = 'none';
     AdminRequest.style.color = '#037A5D';
-    Request.style.color = '#037A5D';
+    reviewRequest.style.display = 'none';
     Request.style.background = 'none';
+    Request.style.color = '#037A5D';
 });
 
 taskBtn.addEventListener('click', () => {
@@ -106,6 +106,7 @@ AdminRequest.addEventListener('click', () => {
     Users.style.color = '#037A5D';
     Request.style.color = '#037A5D';
     Request.style.background = 'none';
+    taskview.style.display = 'none';
     Task.style.background = 'none';
     Task.style.color = '#037A5D';
 });
