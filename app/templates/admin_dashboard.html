@@ -24,7 +24,6 @@
                     <button class="btn profile_btns btn_update_details">Update Details</button>
                     <button class="btn profile_btns btn_request_leave">Request Leave</button>
                     <button class="btn profile_btns btn_create_user">Create User</button>
-                    <button class="btn profile_btns btn_create_task">Create Task</button>
                 </div>
 
             </div>
@@ -33,7 +32,6 @@
                 <div class="tabs">
                     <div class="tab-heading users">Users</div>
                     <div class="tab-heading requests">Request</div>
-                    <div class="tab-heading tasks">Tasks</div>
                     <div class="tab-heading admin_requests">Admin Request</div>
                 </div>
 
@@ -265,37 +263,6 @@
                     <button class="btn cancel-btn" type="button" formnovalidate onclick="window.location.href='/admin_dashboard'">Cancel</button>
                 </form>
             </div>
-
- <!-- CREATE TASK SECTION  -->
-            <div class="Create-task-section">
-                <h2 class="leave-heading">Create Task</h2>
-                <form action="/create_task" method="post" class="create-task-form">
-                    <div class="form-row">
-                        <label class="form-label" for="task_name">Task Name:</label>
-                        <input class="form-input" type="text" id="task_name" name="task_name"  placeholder="Enter task name" required>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="due_date">Due Date:</label>
-                        <input  class="form-input" type="date" id="due_date" name="due_date" placeholder="YYYY-MM-DD" required>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="task_description">Task Description:</label>
-                        <textarea class="form-input" id="task_description" name="task_description" placeholder="Enter task description" required></textarea>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label" for="assigned_to">Assign To:</label>
-                        <select class="form-input" id="assigned_to" name="assigned_to" required>
-                            <option value="" disabled selected>Select user</option>
-                            {% for user in users %}
-                                <option value="{{ user.user_id }}">{{ user.name }}</option>
-                            {% endfor %}
-                        </select>   
-                    </div>
-                    <button type="submit" class="btn update-btn">Create Task</button>
-                    <button type="button" class="btn cancel-btn" onclick="window.location.href='/admin_dashboard'">Cancel</button>
-                </form>
-            </div>
-        </div>
     </main>  
     <script src="{{ url_for('static', filename='js/admin_dashboard/admin_dashboard.js') }}"></script>
 
