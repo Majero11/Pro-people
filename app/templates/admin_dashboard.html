@@ -97,13 +97,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="table-header">Request_id</th>
-                                    <th class="table-header">First Name</th>
-                                    <th class="table-header">Last Name</th>
-                                    <th class="table-header">Leave Type</th>
-                                    <th class="table-header">Start_Date</th>
-                                    <th class="table-header">End_Date</th>
-                                    <th class="table-header">Days Applied</th>
+                                    <th class="table-header">Task_id</th>
+                                    <th class="table-header">Task Description</th>
+                                    <th class="table-header">Assigned to</th>
+                                    <th class="table-header">Due Date</th>
                                     <th class="table-header">Status</th>
                                 </tr>
                             </thead>
@@ -111,13 +108,10 @@
                             <tbody>
                                 {%for task in tasks%}
                                 <tr>
-                                    <td class="table-contents">{{ task.request_id }}</td>
-                                    <td class="table-contents">{{ task.first_name }}</td>
-                                    <td class="table-contents">{{ task.last_name }}</td>
-                                    <td class="table-contents">{{ task.leave_type }}</td>
-                                    <td class="table-contents">{{ task.start_date }}</td>
-                                    <td class="table-contents">{{ task.end_date }}</td>
-                                    <td class="table-contents">{{ task.days_applied }}</td>
+                                    <td class="table-contents">{{ task.task_id }}</td>
+                                    <td class="table-contents">{{ task.title }}</td>
+                                    <td class="table-contents">{{ task.assigned_to }}</td>
+                                    <td class="table-contents">{{ task.due_date }}</td>
                                     <td class="table-contents">{{ task.status }}</td>
                                     <td>
                                         <form method="post" action="/update_task_status">
